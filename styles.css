@@ -44,6 +44,23 @@ header a{
     position: relative;
 }
 
+.container-sobre{
+    margin-top: 5%;
+    max-width: 95%;
+}
+
+.container-sobre h2{
+    margin-bottom: 2%;
+}
+
+.container-sobre p{
+    font-size: 18px;
+    color: rgba(1, 1, 1, 70%);
+    line-height: 24px;
+    margin: 3% 0;
+    text-align: justify;
+}
+
 .container h1{
     margin-top: 1%;
     max-width: 43%;
