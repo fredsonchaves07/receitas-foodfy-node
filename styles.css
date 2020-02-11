@@ -114,26 +114,20 @@ footer{
     color: #999999;
 }
 
-.modal-overlay{
-    border: 1px solid black;
-    position: fixed;
-    top: 0;
-    width: 70%;
-    height: 70%;
-    margin-top: 7%;
-}
-
-
 .modal{
     border: 1px solid black;
-    width: 100%;
-    height: 100%;
-    margin: 15px auto;
+    border-radius: 7%;
+    position: fixed;
+    top: 0;
+    width: 50%;
+    height: 60%;
+    margin: 7% 10%;
+    background-color: white;
 }
 
-
 .modal .close-modal{
-    right: 0;
+    top: 4px;
+    right: 15px;
     cursor: pointer;
     position: absolute;
 }
