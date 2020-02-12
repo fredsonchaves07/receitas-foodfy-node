@@ -1,8 +1,9 @@
-const modal = document.querySelector('.modal')
+const modal = document.querySelector('.modal-background')
 const receitas = document.querySelectorAll('.receitas')
 
 for(let receita of receitas){
     receita.addEventListener("click", function(){
+        console.log('ola')
         modal.classList.add('active')
         var endereco_imagem = receita.querySelector('img').src
         var nome_imagem = receita.querySelector('img').alt
