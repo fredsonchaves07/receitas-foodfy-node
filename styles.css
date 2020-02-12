@@ -93,14 +93,14 @@ header a{
     border-radius: 7%;
 }
 
-.info{
+.receitas .info{
     font-size: 18px;
     line-height: 21px;
     margin-top: 5%;
     margin-bottom: 3%;
 }
 
-.autor{
+.receitas .autor{
     font-size: 14px;
     line-height: 16px;
     color: rgba(1, 1, 1, 70%);
@@ -123,6 +123,13 @@ footer{
     height: 60%;
     margin: 7% 10%;
     background-color: white;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal.active{
+    opacity: 1;
+    visibility: visible;
 }
 
 .modal .close-modal{
