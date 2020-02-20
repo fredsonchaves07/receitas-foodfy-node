@@ -10,36 +10,13 @@
         </div>
         <h2>Mais acessadas</h2>
         <div class="receitas-mais-acessadas">
-            <section class="receitas" id="burger">
-                <img src="img/burger.png" alt="burger">
-                <p class="info">Triplo bacon burguer</p>
-                <p class="autor">por Jorge Relato</p>
+            {% for receita in dados %}
+            <section class="receitas" id="{{receita.id}}">
+                <img src="{{receita.image}}" alt="imagem do {{receita.title}}">
+                <p class="info">{{receita.title}}</p>
+                <p class="autor">por {{receita.author}}</p>
             </section>
-            <section class="receitas" id="pizza">
-                <img src="img/pizza.png" alt="pizza">
-                <p class="info">Pizza 4 estações</p>
-                <p class="autor">por Fabiana Melo</p>
-            </section>
-            <section class="receitas" id="espaguete">
-                <img src="img/espaguete.png" alt="espaguete">
-                <p class="info">Espaguete ao alho</p>
-                <p class="autor">por Júlia Kinoto</p>
-            </section>
-            <section class="receitas" id="lasanha">
-                <img src="img/lasanha.png" alt="lasanha">
-                <p class="info">Lasanha mac n' cheese</p>
-                <p class="autor">por Juliano Vieira</p>
-            </section>
-            <section class="receitas" id="doce">
-                <img src="img/doce.png" alt="doce">
-                <p class="info">Docinho pão-do-céu</p>
-                <p class="autor">por Ricardo Golvea</p>
-            </section>
-            <section class="receitas" id="asinhas">
-                <img src="img/asinhas.png" alt="asinhas">
-                <p class="info">Asinhas de frango ao barbecue</p>
-                <p class="autor">por Vania Steroski</p>
-            </section>
+            {% endfor %}
         </div>
     </main>
     <div class="modal-background">

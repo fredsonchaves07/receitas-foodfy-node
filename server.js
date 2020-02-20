@@ -13,11 +13,11 @@ nunjucks.configure('views', {
 })
 
 server.get('/', function(req, res){
-    res.render('index')
+    res.render('index', {dados: dados})
 })
 
 server.get('/receitas', function(req, res){
-    res.render('receitas')
+    res.render('receitas', {dados: dados})
 })
 
 server.get('/sobre', function(req, res){

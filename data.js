@@ -1,7 +1,8 @@
 module.exports = [
     {
-      image: 'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png',
+      image: 'img/burger.png',
       title: 'Triplo bacon burger',
+      id:     'burger',
       author: 'Jorge Relato',
       ingredients: [
         '3 kg de carne moída (escolha uma carne magra e macia)',
@@ -23,8 +24,9 @@ module.exports = [
       information: "Preaqueça a chapa, frigideira ou grelha por 10 minutos antes de levar os hambúrgueres. Adicione um pouquinho de óleo ou manteiga e não amasse os hambúrgueres! \n\n Você sabia que a receita que precede o hambúrguer surgiu no século XIII, na Europa? A ideia de moer a carne chegou em Hamburgo no século XVII, onde um açogueiro resolveu também temperá-la. Assim, a receita foi disseminada nos Estados Unidos por alemães da região. Lá surgiu a ideia de colocar o hambúrguer no meio do pão e adicionar outros ingredientes, como queijom tomates e alface."
     },
     {
-      image: 'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/pizza.png',
+      image: 'img/pizza.png',
       title: 'Pizza 4 estações',
+      id:    'pizza',
       author: 'Fabiana Melo',
       ingredients: [
         '1 xícara (chá) de leite',
@@ -50,8 +52,9 @@ module.exports = [
       information: 'Pizza de liquidificador é uma receita deliciosa e supersimples de preparar. Feita toda no liquidificador, ela é bem prática para o dia a dia. Aqui no TudoGostoso você também encontra diversas delícias práticas feitas no liquidificador: massa de panqueca, torta de frango de liquidificador, pão de queijo de liquidificador, bolo de banana, bolo de chocolate e muito mais!'
     },
     {
-      image: 'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/asinha.png',
+      image: 'img/asinhas.png',
       title: 'Asinhas de frango ao barbecue',
+      id:     'asinhas',
       author: 'Vania Steroski',
       ingredients: [
         '12 encontros de asinha de galinha, temperados a gosto',
@@ -67,8 +70,9 @@ module.exports = [
       information: ''
     },
     {
-      image: 'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/lasanha.png',
+      image: 'img/lasanha.png',
       title: "Lasanha mac n' cheese",
+      id:    'lasanha',
       author: 'Juliano Vieira',
       ingredients: [
         'massa pronta de lasanha',
@@ -87,8 +91,9 @@ module.exports = [
       information: 'Recheie a lasanha com o que preferir.'
     },
     {
-      image: 'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/macarrao.png',
+      image: 'img/espaguete.png',
       title: 'Espaguete ao alho',
+      id:    'espaguete',
       author: 'Júlia Kinoto',
       ingredients: [
         '1 pacote de macarrão 500 g (tipo do macarrão a gosto)',
@@ -111,8 +116,9 @@ module.exports = [
       information: 'Não lave o macarrão nem passe óleo ou gordura nele depois de escorrê-lo. Coloque direto na frigideira.'
     },
     {
-      image: 'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/doce.png',
+      image: 'img/doce.png',
       title: 'Docinhos pão-do-céu',
+      id:    'doce',
       author: 'Ricardo Golvea',
       ingredients: [
         '1 kg de batata - doce',
