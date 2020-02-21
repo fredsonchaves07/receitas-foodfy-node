@@ -13,15 +13,22 @@ nunjucks.configure('views', {
 })
 
 server.get('/', function(req, res){
-    res.render('index', {dados: dados})
+    return res.render('index', {dados: dados})
 })
 
 server.get('/receitas', function(req, res){
-    res.render('receitas', {dados: dados})
+    return res.render('receitas', {dados: dados})
+})
+
+server.get('/receitas/:id', function(req, res){
+    const receita = dados
+    const id = req.params.id
+
+    return res.render('detalhes_receita', {receita: receita[id]})
 })
 
 server.get('/sobre', function(req, res){
-    res.render('sobre')
+    return res.render('sobre')
 })
 
 server.listen(5000, function(){
