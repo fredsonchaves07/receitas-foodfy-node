@@ -6,7 +6,7 @@
         <p>{{receita.author}}</p>
     </div>
     <div class="conteudo_receita">
-        <h2>Igredientes</h2>
+        <h2>Igredientes</h2><span>Esconder</span>
         <ul>
             {% for igrediente in receita.ingredients %}
             <li>{{igrediente}}</li>
@@ -16,6 +16,7 @@
         {% for preparo in receita.preparation %}
         <p>{{preparo}}</p>
         {% endfor %}
-
+        <h2>Informações Adicionais</h2>
+        <p>{{receita.information}}</p>
     </div>
 {% endblock %}
