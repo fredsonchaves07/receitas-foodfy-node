@@ -12,7 +12,7 @@ nunjucks.configure('views', {
     express: server
 })
 
-server.get('/', function(req, res){
+server.get('', function(req, res){
     return res.render('index', {dados: dados})
 })
 
