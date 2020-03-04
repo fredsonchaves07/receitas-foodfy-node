@@ -31,6 +31,4 @@ server.get('/sobre', function(req, res){
     return res.render('sobre')
 })
 
-server.listen(5000, function(){
-    console.log('Em Execução..')
-})
+server.listen(process.env.PORT || 5000)
