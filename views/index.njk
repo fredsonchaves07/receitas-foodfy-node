@@ -12,7 +12,7 @@
         <div class="receitas-mais-acessadas">
             {% for receita in dados %}
             <section class="receitas" id="{{receita.id}}">
-                <a href="/receitas/{{dados.indexOf(receita)}}" target="_blank"><img src="{{receita.image}}" alt="imagem do {{receita.title}}"></a>
+                <a href="/receitas/{{dados.indexOf(receita)}}"><img src="{{receita.image}}" alt="imagem do {{receita.title}}"></a>
                 <p class="info">{{receita.title}}</p>
                 <p class="autor">por {{receita.author}}</p>
             </section>
