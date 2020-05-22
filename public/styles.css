@@ -11,20 +11,27 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+/*
 main{
     max-width: 70%;
     margin: 0px auto;
-}
+}*/
 
-header .navegacao{
-    max-width: 70%;
+header .navegacao, .container{
+    max-width: 900px;
     margin: 0px auto;
 }
 
+.container{
+    margin-top: 50px
+}
+
+/*
 .navegacao .logo-foodfy{
     position: relative;
     top: 8px;
 }
+*/
 
 .navegacao a{
     font-size: 16px;
@@ -38,7 +45,7 @@ header{
     padding: 20px;
 }
 
-.container{
+.mudar{
     margin-top: 4%;
     margin-bottom: 6%;
     background-color: #FBDFDB;
@@ -47,16 +54,16 @@ header{
     position: relative;
 }
 
-.container-sobre{
+.mudar-sobre{
     margin-top: 5%;
     max-width: 95%;
 }
 
-.container-sobre h2{
+.mudar-sobre h2{
     margin-bottom: 2%;
 }
 
-.container-sobre p{
+.mudar-sobre p{
     font-size: 18px;
     color: rgba(1, 1, 1, 70%);
     line-height: 24px;
@@ -64,12 +71,12 @@ header{
     text-align: justify;
 }
 
-.container h1{
+.mudar h1{
     margin-top: 1%;
     max-width: 43%;
 }
 
-.container p{
+.mudar p{
     max-width: 43%;
     margin-top: 3%;
     font-size: 18px;
@@ -77,7 +84,7 @@ header{
     line-height: 28px;
 }
 
-.container img{
+.mudar img{
     position: absolute;
     bottom: 0;
     right: 10%;
