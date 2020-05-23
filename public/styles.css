@@ -18,7 +18,7 @@ main{
 }*/
 
 .navegacao, .container{
-    width: 70%;
+    width: 75%;
     margin: 0px auto;
     box-sizing: unset;
 }
@@ -185,26 +185,43 @@ span{
     grid-template-columns: 1fr 1fr;
     margin-top: 40px;
     gap: 30px;
+    margin-bottom: 30px;
 }
 
 .gerenciar-receitas .card{
     display: grid;
     grid-template-columns: 0.8fr 1fr;
-    margin-bottom: 20px;
+    
 }
 
-.gerenciar-receitas .img-gerenciar-receitas img{
+.img-gerenciar-receitas img{
     width: 100%;
     border-radius: 10px;
     display: block;
 }
 
-.gerenciar-receitas .detalhes-gerenciar-receitas{
+.detalhes-gerenciar-receitas{
     margin-left: 10px;
 }
 
-.detalhes-gerenciar-receitas .item div{
+.item div{
     padding: 5px;
+    line-height: 25px;
+}
+
+.item div:first-child{
+    font-size: 18px;
+}
+
+.item div:nth-child(2){
+    font-size: 14px;
+    color: #777777;
+}
+
+.item div a{
+    font-size: 14px;
+    text-decoration: none;
+    color: #6558c3;
 }
 
 

@@ -7,7 +7,7 @@ exports.index = function(req, res){
 
 //show
 exports.show = function(req, res){
-
+    return res.send('ShowReceita')
 }
 
 //create

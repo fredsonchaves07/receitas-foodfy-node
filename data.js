@@ -2,7 +2,7 @@ module.exports = [
     {
       image: '/img/burger.png',
       title: 'Triplo bacon burger',
-      id:     'burger',
+      id:     '1',
       author: 'Jorge Relato',
       ingredients: [
         '3 kg de carne moída (escolha uma carne magra e macia)',
@@ -26,7 +26,7 @@ module.exports = [
     {
       image: '/img/pizza.png',
       title: 'Pizza 4 estações',
-      id:    'pizza',
+      id:    '2',
       author: 'Fabiana Melo',
       ingredients: [
         '1 xícara (chá) de leite',
@@ -54,7 +54,7 @@ module.exports = [
     {
       image: '/img/asinhas.png',
       title: 'Asinhas de frango ao barbecue',
-      id:     'asinhas',
+      id:     '3',
       author: 'Vania Steroski',
       ingredients: [
         '12 encontros de asinha de galinha, temperados a gosto',
@@ -72,7 +72,7 @@ module.exports = [
     {
       image: '/img/lasanha.png',
       title: "Lasanha mac n' cheese",
-      id:    'lasanha',
+      id:    '4',
       author: 'Juliano Vieira',
       ingredients: [
         'massa pronta de lasanha',
@@ -93,7 +93,7 @@ module.exports = [
     {
       image: '/img/espaguete.png',
       title: 'Espaguete ao alho',
-      id:    'espaguete',
+      id:    '5',
       author: 'Júlia Kinoto',
       ingredients: [
         '1 pacote de macarrão 500 g (tipo do macarrão a gosto)',
@@ -118,7 +118,7 @@ module.exports = [
     {
       image: '/img/doce.png',
       title: 'Docinhos pão-do-céu',
-      id:    'doce',
+      id:    '6',
       author: 'Ricardo Golvea',
       ingredients: [
         '1 kg de batata - doce',
