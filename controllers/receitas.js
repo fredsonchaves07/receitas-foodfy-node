@@ -1,8 +1,8 @@
-
+const dados = require('../data.js')
 
 //index
 exports.index = function(req, res){
-    return res.render('admin/receitas')
+    return res.render('admin/receitas', {receitas: dados})
 }
 
 //show

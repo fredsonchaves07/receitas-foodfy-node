@@ -2,4 +2,26 @@
 
 {% block content %}
     <h2>Gerenciar receitas</h2>
+    <div class="gerenciar-receitas">
+        {% for receita in receitas %}
+        <div class="card">
+            <section class="img-gerenciar-receitas">
+                <img src="{{receita.image}}">
+            </section>
+            <section class="detalhes-gerenciar-receitas">
+                <div class="item">
+                    <div>
+                        {{receita.title}}
+                    </div>
+                    <div>
+                        por {{receita.author}}
+                    </div>
+                    <div>
+                        <a>Visualizar</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}
