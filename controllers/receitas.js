@@ -7,7 +7,17 @@ exports.index = function(req, res){
 
 //show
 exports.show = function(req, res){
-    return res.send('ShowReceita')
+    const {id} = req.params
+
+    const foundReceita = dados.receitas.find(function(receitas){
+        return receitas.id == id
+    })
+
+    if(!foundReceita){
+        return res.send('Receita não encontrada')
+    }
+
+    return res.render('admin/show.njk')
 }
 
 //create
