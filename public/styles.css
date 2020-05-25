@@ -18,7 +18,7 @@ main{
 }*/
 
 .navegacao, .container{
-    width: 75%;
+    width: 70%;
     margin: 0px auto;
     box-sizing: unset;
 }
@@ -176,7 +176,6 @@ span{
     color: #444444;
     font-size: 18px;
     margin-bottom: 25px;
-    text-align: justify ;
 }
 
 /*Gerenciar Receitas - Admin */
@@ -205,8 +204,8 @@ span{
 }
 
 .item div{
-    padding: 5px;
-    line-height: 25px;
+    padding: 4px;
+    line-height: 18px;
 }
 
 .item div:first-child{
@@ -222,6 +221,40 @@ span{
     font-size: 14px;
     text-decoration: none;
     color: #6558c3;
+}
+
+/* Visualização da Receita */
+.titulo-receita{
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.titulo-receita h2{
+    display: inline-block;
+    padding: 4px 0px;
+}
+
+.titulo-receita .button{
+    text-decoration: none;
+    background-color: #6558C3;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    width: 130px;
+    box-sizing: border-box;
+    padding: 8px 0;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    max-height: 100%;
+    right: 0;
+}
+
+.imagem-receita img{
+    width: 100%;
+    border-radius: 8px;
+    height: 280px;
 }
 
 

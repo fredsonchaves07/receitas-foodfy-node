@@ -17,7 +17,7 @@ exports.show = function(req, res){
         return res.send('Receita não encontrada')
     }
 
-    return res.render('admin/show.njk')
+    return res.render('admin/show.njk', {receita: foundReceita})
 }
 
 //create
