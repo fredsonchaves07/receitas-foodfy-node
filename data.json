@@ -5,7 +5,7 @@
       "title": "Triplo bacon burger",
       "id":     "1",
       "author": "Jorge Relato",
-      "ngredients": [
+      "ingredients": [
         "3 kg de carne moída (escolha uma carne magra e macia)",
         "300 g de bacon moído",
         "1 ovo",

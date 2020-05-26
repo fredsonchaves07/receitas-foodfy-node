@@ -156,6 +156,7 @@ footer{
     display: inline-block;
 }
 
+/*
 span{
     margin-left: 2%;
     display: inline-block;
@@ -163,6 +164,7 @@ span{
     font-size: 12px;
     color: #999;
 }
+*/
 
 .conteudo_receita li{
     margin-left: 15px;
@@ -203,14 +205,18 @@ span{
     margin-left: 10px;
 }
 
+/*
 .item div{
     padding: 4px;
     line-height: 18px;
 }
+*/
 
+/*
 .item div:first-child{
     font-size: 18px;
 }
+*/
 
 .item div:nth-child(2){
     font-size: 14px;
@@ -250,6 +256,9 @@ span{
     max-height: 100%;
     right: 0;
 }
+.imagem-receita{
+    margin-bottom: 50px;
+}
 
 .imagem-receita img{
     width: 100%;
@@ -257,5 +266,42 @@ span{
     height: 280px;
 }
 
+.informacoes-receita{
+    text-align: center;
+}
+
+.informacoes-receita h1{
+    margin-bottom: 8px;
+}
+
+.informacoes-receita span{
+    font-size: 18px;
+    color: #777;
+}
+
+.detalhes-receita .item{
+    margin: 30px 0;
+}
+
+.item div{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.item p, .item ul li{
+    line-height: 30px;
+    font-size: 16px;
+    color: #444444;
+}
+
+.item ul li{
+    list-style-type: none;
+    list-style-position: inside;
+}
 
 
+.item ul > li:before{
+    content: '-';
+    margin-right: 10px;
+}

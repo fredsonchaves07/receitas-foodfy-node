@@ -7,4 +7,34 @@
     <div class="imagem-receita">
         <img src="{{receita.image}}">
     </div>
+    <div class="informacoes-receita">
+        <h1>{{receita.title}}</h1>
+        <span>por {{receita.author}}</span>
+    </div>
+    <section class="detalhes-receita">
+        <div class="item">
+            <div>Igredientes</div>
+            <ul>
+                {% for ingrediente in receita.ingredients %}
+                    <li>{{ingrediente}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="item">
+            <div>Modo de Preparo</div>
+            <ul>
+                {% for preparo in receita.preparation %}
+                    <li>{{preparo}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% if receita.information != "" %}
+        <div class="item">
+            <div>Informações adicionais</div>
+            <p>
+                {{receita.information}}
+            </p>
+        </div>
+        {% endif %}
+    </section>
 {% endblock %}
