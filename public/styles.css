@@ -205,25 +205,21 @@ span{
     margin-left: 10px;
 }
 
-/*
-.item div{
+.detalhes-gerenciar-receitas .item div{
     padding: 4px;
     line-height: 18px;
 }
-*/
 
-/*
-.item div:first-child{
+.detalhes-gerenciar-receitas .item div:first-child{
     font-size: 18px;
 }
-*/
 
-.item div:nth-child(2){
+.detalhes-gerenciar-receitas .item div:nth-child(2){
     font-size: 14px;
     color: #777777;
 }
 
-.item div a{
+.detalhes-gerenciar-receitas .item div a{
     font-size: 14px;
     text-decoration: none;
     color: #6558c3;
@@ -283,25 +279,25 @@ span{
     margin: 30px 0;
 }
 
-.item div{
+.detalhes-receita .item div{
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-.item p, .item ul li{
+.detalhes-receita .item p, .item ul li{
     line-height: 30px;
     font-size: 16px;
     color: #444444;
 }
 
-.item ul li{
+.detalhes-receita .item ul li{
     list-style-type: none;
     list-style-position: inside;
 }
 
 
-.item ul > li:before{
+.detalhes-receita .item ul > li:before{
     content: '-';
     margin-right: 10px;
 }

@@ -2,7 +2,7 @@
 {% block content %}
     <div class="titulo-receita">
         <h2>Receita: {{receita.title}}</h2>
-        <a href="#" class="button">Editar receita</a>
+        <a href="{{receita.id}}/edit" class="button">Editar receita</a>
     </div>
     <div class="imagem-receita">
         <img src="{{receita.image}}">
