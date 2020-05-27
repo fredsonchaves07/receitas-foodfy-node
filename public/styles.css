@@ -296,8 +296,12 @@ span{
     list-style-position: inside;
 }
 
-
 .detalhes-receita .item ul > li:before{
     content: '-';
     margin-right: 10px;
+}
+
+/* Edição da receita */
+#form-edit h2{
+    margin-bottom: 30px;
 }

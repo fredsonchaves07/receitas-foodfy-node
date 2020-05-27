@@ -1,10 +1,8 @@
 {% extends "layout-admin.njk" %}
 {% block content %}
-    <div>
+    <form action="" method="POST" id="form-edit">
         <h2>Editando receita</h2>
-    </div>
-    <form action="" method="POST">
-        
+        {% include "fields.njk" %}
     </form>
     
 {% endblock %}
