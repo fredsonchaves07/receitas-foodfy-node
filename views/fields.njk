@@ -1,5 +1,23 @@
 <div class="item">
     <div>Imagem da receita</div>
-    <input type="url">
-    </input>
+    <input type="url" name="image" placeholder="http://" value="{{receita.image}}">
 </div>
+
+<div class="item">
+    <div>Título da Receita</div>
+    <input type="text" name="title" placeholder="Digite o nome da receita" value="{{receita.title}}"> 
+</div>
+
+<div class="item">
+    <div>Ingredientes</div>
+    <div id="ingredients">
+        {% for ingredient in receita.ingredients %}
+            <div class="ingredient">
+                <input type="text" name="ingredients[]" placeholder="Digite o ingrediente" value="{{ingredient}}"> 
+            </div> 
+        {% endfor %}
+    </div>
+    <button type="button" class=".add-ingredient" onclick="addIngredient()">Adicionar novo ingrediente</button>
+</div>  
+
+

@@ -2,7 +2,24 @@
 {% block content %}
     <form action="" method="POST" id="form-edit">
         <h2>Editando receita</h2>
-        {% include "fields.njk" %}
+            {% include "fields.njk" %}
+        </div>
     </form>
-    
+    <script>
+        function addIngredient(){
+
+            const ingredients = document.querySelector('#ingredients')
+            const fieldContainer = document.querySelectorAll(".ingredient")
+            
+            const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
+
+            if(newField.children[0].value == ""){
+                return false
+            }
+
+            newField.children[0].value = ""
+            
+            ingredients.appendChild(newField)
+        }
+    </script>
 {% endblock %}

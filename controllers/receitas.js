@@ -1,4 +1,5 @@
 const dados = require('../data.json')
+const utils = require('../utils.js')
 
 //index
 exports.index = function(req, res){
@@ -37,8 +38,11 @@ exports.edit = function(req, res){
         return res.send('Receita não encontrada')
     }
 
+    receita = {
+        ...foundReceita
+    }
 
-    return res.render('admin/edit.njk', {receita: foundReceita})
+    return res.render('admin/edit.njk', {receita})
 }
 
 //post

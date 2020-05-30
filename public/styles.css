@@ -302,6 +302,19 @@ span{
 }
 
 /* Edição da receita */
-#form-edit h2{
-    margin-bottom: 30px;
+#form-edit .item{
+    margin-top: 30px;
+}
+
+#form-edit .item div{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#form-edit input {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    width: 100%;
 }
