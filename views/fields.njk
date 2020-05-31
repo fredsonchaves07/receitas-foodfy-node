@@ -17,7 +17,24 @@
             </div> 
         {% endfor %}
     </div>
-    <button type="button" class=".add-ingredient" onclick="addIngredient()">Adicionar novo ingrediente</button>
-</div>  
+    <button type="button" class="add-ingredient" onclick="addIngredient()">Adicionar novo ingrediente</button>
+</div>
+
+<div class="item">
+    <div>Modo de Preparo</div>
+    <div id="preparations">
+        {% for preparation in receita.preparation %}
+            <div class="preparation">
+                <input type="text" name="preparation[]" placeholder="Digite o modo de preparo" value="{{preparation}}">
+            </div>
+        {% endfor %}
+    </div>
+    <button type="button" class="add-preparation" onclick="addPreparation()">Adicionar novo passo</button>
+</div>
+
+<div class="item">
+    <div>Informações adicionais</div>
+    <input type="text" class="information"name="information" placeholder="Digite as informações adicionais" value="{{receita.information}}">
+</div>
 
 
