@@ -1,7 +1,14 @@
 {% extends "layout-admin.njk" %}
 {% block content %}
     <form action="" method="POST" id="form-edit">
-        <h2>Editando receita</h2>
+        <div id="form-edit-header">
+            <h2>Editando receita</h2>
+            <div>
+                <button type="button" class="recipes-cancel">Cancelar</button>
+                <button type="submit" class="recipes-edit">Salvar receita</button>
+            </div>
+        </div>
+        <div>
             {% include "fields.njk" %}
         </div>
     </form>
@@ -32,6 +39,7 @@
             newField.children[0].value = ""
 
             preparations.appendChild(newField)
+            
         }
     </script>
 {% endblock %}
