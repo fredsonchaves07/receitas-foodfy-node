@@ -7,7 +7,7 @@ exports.index = function(req, res){
 
 //create
 exports.create = function(req, res){
-
+    
 }
 
 //show

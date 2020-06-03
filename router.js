@@ -23,6 +23,10 @@ routes.get('/sobre', function(req, res){
 })
 
 //Rotas para página administrativa
+routes.get('/admin', function(res){
+    return res.redirect('admin/receitas')
+})
+
 routes.get('/admin/receitas', receitas.index)
 routes.get('/admin/receitas/create', receitas.create)
 routes.get('/admin/receitas/:id', receitas.show)
