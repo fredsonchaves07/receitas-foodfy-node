@@ -1,5 +1,4 @@
 const dados = require('../data.json')
-const utils = require('../utils.js')
 
 //index
 exports.index = function(req, res){
