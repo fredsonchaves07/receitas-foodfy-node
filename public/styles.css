@@ -367,3 +367,28 @@ span{
 button:focus{
     outline: thin;
 }
+
+/* Refactor - chefs */
+.cards{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards .card-refact{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards .card-refact .card-img-chef img{
+    border-radius: 50%;
+    width: 10px;
+}
+
+.cards .card-refact .card-details{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+
