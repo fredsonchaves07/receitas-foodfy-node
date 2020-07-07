@@ -1,13 +1,13 @@
-const dados = require('../data.json')
+const dados = require('../app/data.json')
 
 //index
 exports.index = function(req, res){
-    return res.render('admin/receitas', {receitas: dados.receitas})
+    return res.render('admin/recipes/receitas', {receitas: dados.receitas})
 }
 
 //create
 exports.create = function(req, res){
-    return res.render('admin/create')
+    return res.render('admin/recipes/create')
 }
 
 //show
@@ -22,7 +22,7 @@ exports.show = function(req, res){
         return res.send('Receita não encontrada')
     }
 
-    return res.render('admin/show.njk', {receita: foundReceita})
+    return res.render('admin/recipes/show.njk', {receita: foundReceita})
 }
 
 //edit
@@ -41,7 +41,7 @@ exports.edit = function(req, res){
         ...foundReceita
     }
 
-    return res.render('admin/edit.njk', {receita})
+    return res.render('admin/recipes/edit.njk', {receita})
 }
 
 //post
