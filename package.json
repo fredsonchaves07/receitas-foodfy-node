@@ -4,8 +4,8 @@
   "description": "",
   "main": "scripts.js",
   "scripts": {
-    "start": "npm-run-all -p nodemon browsersync", 
-    "nodemon": "nodemon server.js", 
+    "start": "npm-run-all -p nodemon browsersync",
+    "nodemon": "nodemon app/server.js",
     "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public, views'"
   },
   "repository": {
@@ -21,7 +21,8 @@
   "homepage": "https://github.com/fredsonchaves07/receitas-foodfy#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "nunjucks": "^3.2.0"
+    "nunjucks": "^3.2.0",
+    "pg": "^8.2.1"
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
