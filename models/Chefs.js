@@ -10,8 +10,6 @@ module.exports = {
             if(err){
                 throw `Database Error! ${err}`
             }
-
-            console.log(results.rows)
             
             callback(results.rows)
         })

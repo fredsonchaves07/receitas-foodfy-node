@@ -6,5 +6,9 @@ module.exports = {
             return res.render('admin/chefs/index', {chefs})
         })
         
+    },
+
+    create(req, res){
+        return res.render('admin/chefs/create')
     }
 }
