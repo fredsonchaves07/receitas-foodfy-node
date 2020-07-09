@@ -39,7 +39,10 @@ routes.put('/admin/receitas', receitas.put)
 routes.delete('/admin/receitas', receitas.delete)
 
 //Admin -> Chefs
+
 routes.get('/admin/chefs', chefs.index)
 routes.get('/admin/chefs/create', chefs.create)
+
+routes.post('/admin/chefs', chefs.post)
 
 module.exports = routes

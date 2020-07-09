@@ -298,7 +298,7 @@ span{
 }
 
 /* Edição da receita */
-#form-edit-header{
+#form-create-header{
     display: flex;
     align-items: center;
 
@@ -307,7 +307,7 @@ span{
 }
 
 
-#form-edit-header div button{
+#form-create-header div button{
     margin: 0;
     padding: 10px 20px;
     border-radius: 4px;
@@ -316,25 +316,25 @@ span{
     cursor: pointer;
 }
 
-#form-edit-header div button.recipes-cancel{
+#form-create-header div button.recipes-cancel{
     margin-right: 15px;
     background-color: #DC4747;
 }
 
-#form-edit-header div button.recipes-edit{
+#form-create-header div button.recipes-edit{
     background-color: #6558c3;
 }
 
-#form-edit .item{
+#form-create .item{
     margin-top: 30px;
 }
 
-#form-edit .item div{
+#form-create .item label{
     font-size: 16px;
     font-weight: bold;
 }
 
-#form-edit input, textarea{
+#form-create input, textarea{
     padding: 15px;
     margin-top: 10px;
     border: 1px solid #DDD;
@@ -343,7 +343,7 @@ span{
     box-sizing: border-box;
 }
 
-#form-edit .information{
+#form-create .information{
     resize: none;
     line-height: 24px;
     width: 100%;
@@ -352,13 +352,13 @@ span{
     text-indent: initial
 }
 
-#form-edit button{
+/*
+#form-create button{
     background-color: unset;
     margin-top: 15px;
     color: #6558C3;
     font-weight: bold;
-   
-}
+}*/
 
 button:focus{
     outline: thin;

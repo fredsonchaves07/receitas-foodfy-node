@@ -13,5 +13,29 @@ module.exports = {
             
             callback(results.rows)
         })
+    },
+
+    create(data, callback){
+        const query = `
+            INSERT INTO chefs (
+                avatar_url,
+                name,
+                created_at
+            ) VALUES ($1, $2, $3)
+        `
+
+        const values = [
+            data.avatar_url,
+            data.name,
+            new Date().toISOString()
+        ]
+
+        db.query(query, values, (err, results) => {
+            if(err){
+                throw `Database Error! ${err}`
+            }
+
+            callback()
+        })
     }
 }
