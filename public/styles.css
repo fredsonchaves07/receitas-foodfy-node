@@ -1,6 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
+:root{
+    --primary-color: #6558c3
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -372,26 +376,41 @@ button:focus{
 }
 
 .cards{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 50px;
+    gap: 5px;
+    row-gap: 20px;
 }
 
 .cards .card-refact{
     display: flex;
-    justify-content: space-between;
+}
+
+.cards .card-refact .card-img-chef{
+    margin-right: 15px;
 }
 
 .cards .card-refact .card-img-chef img{
     border-radius: 50%;
-    width: 10px;
+    width: 60px;
+    height: 60px;
 }
 
 .cards .card-refact .card-details{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    padding: 8px;
 }
 
+.cards .card-refact .card-details div:first-child{
+    font-size: 18px;
+}
 
-
-
+.cards .card-refact .card-details a{
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 14px;
+}

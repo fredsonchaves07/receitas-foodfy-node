@@ -6,33 +6,21 @@
     </div>
 
     <div class="cards">
+        {% for chef in chefs %}
+        
         <div class="card-refact">
             <section class="card-img-chef">
-                <img src="" alt="">
+                <img src="{{chef.avatar_url}}" alt="">
             </section>
             <section class="card-details">
                 <div>
-                    Julia Kinoto
+                    {{chef.name}}
                 </div>
                 <div>
-                    Salvar
+                    <a href="chefs/{{chef.id}}">Visualizar</a>
                 </div>
             </section>
         </div>
-
-        <div class="card-refact">
-            <section class="card-img-chef">
-                <img src="" alt="">
-            </section>
-            <section class="card-details">
-                <div>
-                    Julia Kinoto
-                </div>
-                <div>
-                    Salvar
-                </div>
-            </section>
-        </div>
-
+        {% endfor %}
     </div>
 {% endblock content %}
