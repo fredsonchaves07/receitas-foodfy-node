@@ -16,5 +16,15 @@ module.exports = {
         Chefs.create(req.body, () => {
             return res.redirect('/admin/chefs')
         })
+    },
+
+    show(req, res){
+        Chefs.find(req.params.id, (chef) => {
+            if(!chef){
+                return res.send('Chef not found')
+            }
+
+            return res.render('admin/chefs/show', {chef})
+        })
     }
 }

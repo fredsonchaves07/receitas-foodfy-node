@@ -1,0 +1,18 @@
+{% extends 'layout-admin.njk' %}
+{% block content %}
+<div class="content-header">
+    <h2>Chef: {{chef.name}}</h2>
+    <a href="chefs/edit" class="button">Editar chef</a>
+</div>
+<section class="chef-show-avatar">
+    <img src="{{chef.avatar_url}}" alt="">
+    <h1>{{chef.name}}</h1>
+    <div>Receitas</div>
+</section>
+<section class="chef-show-detail">
+    <h2>Receitas</h2>
+    <div>
+        
+    </div>
+</section>
+{% endblock content %}
