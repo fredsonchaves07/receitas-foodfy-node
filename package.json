@@ -21,6 +21,7 @@
   "homepage": "https://github.com/fredsonchaves07/receitas-foodfy#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "method-override": "^3.0.0",
     "nunjucks": "^3.2.0",
     "pg": "^8.2.1"
   },

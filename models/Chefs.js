@@ -54,5 +54,45 @@ module.exports = {
 
             callback(results.rows[0])
         })
+    },
+
+    update(data, callback){
+        const query = `
+            UPDATE chefs
+            SET avatar_url = $1,
+                name = $2
+            WHERE id = $3
+        `
+
+        const values = [
+            data.avatar_url,
+            data.name,
+            data.id
+        ]
+
+        db.query(query, values, (err) => {
+            if(err){
+                throw `Database Error! ${err}`
+            }
+
+            callback()
+        })
+    },
+
+    delete(id, callback){
+        const query = `
+            DELETE FROM chefs
+            WHERE id = $1
+        `
+
+        const value = [id]
+
+        db.query(query, value, (err) => {
+            if(err){
+                throw `Database Error! ${err}`
+            }
+
+            callback()
+        })
     }
 }

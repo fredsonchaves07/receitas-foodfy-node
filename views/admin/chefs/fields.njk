@@ -1,10 +1,12 @@
 <fieldset>
     <div class="item">
         <label for="avatar_url">Avatar URL</label>
-        <input type="url" name="avatar_url" placeholder="http://" required>
+        <input value="{{chef.avatar_url}}" type="url" name="avatar_url" placeholder="http://" required>
     </div>
     <div class="item">
         <label for="name">Nome</label>
-        <input type="text" name="name" placeholder="Digite o nome do chef" required>
+        <input value="{{chef.name}}" type="text" name="name" placeholder="Digite o nome do chef" required>
     </div>
+    
+    <input type="hidden" name="id" value="{{chef.id}}">
 </fieldset>

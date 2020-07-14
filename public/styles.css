@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
 :root{
-    --primary-color: #6558c3
+    --primary-color: #6558c3;
+    --warning-color: #DC4747
 }
 
 *{
@@ -243,7 +244,7 @@ span{
 .button{
     text-decoration: none;
     background-color: #6558C3;
-    border-radius: 8px;
+    border-radius: 6px;
     color: white;
     font-size: 14px;
     font-weight: bold;
@@ -252,6 +253,11 @@ span{
     text-align: center;
     cursor: pointer;
 }
+
+.button-delete{
+    background-color: var(--warning-color);
+}
+
 .imagem-receita{
     margin-bottom: 50px;
 }
@@ -329,16 +335,16 @@ span{
     background-color: #6558c3;
 }
 
-#form-create .item{
+form .item{
     margin-top: 30px;
 }
 
-#form-create .item label{
+form .item label{
     font-size: 16px;
     font-weight: bold;
 }
 
-#form-create input, textarea{
+form input, textarea{
     padding: 15px;
     margin-top: 10px;
     border: 1px solid #DDD;
@@ -347,7 +353,7 @@ span{
     box-sizing: border-box;
 }
 
-#form-create .information{
+form  .information{
     resize: none;
     line-height: 24px;
     width: 100%;
@@ -374,6 +380,12 @@ button:focus{
     align-items: center;
     justify-content: space-between;
     margin-bottom: 50px;
+}
+
+.content-header div{
+    display: flex;
+    justify-content: space-between;
+    width: 250px
 }
 
 .cards{
@@ -436,4 +448,21 @@ button:focus{
     margin-top: 10px;
     font-size: 18px;
     color: #777;
+}
+
+/* Edição do formulário */
+form .content-form{
+    display: flex;
+    flex-direction: column;
+}
+
+form .content-form {
+    text-align: center;
+}
+
+form .content-form img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
 }
