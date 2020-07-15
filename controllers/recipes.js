@@ -1,10 +1,12 @@
 const dados = require('../app/data.json')
 
-//index
-exports.index = function(req, res){
-    return res.render('admin/recipes/receitas', {receitas: dados.receitas})
-}
+module.exports = {
+    index(req, res){
+        return res.render('admin/recipes/index', {receitas: dados.receitas})
+    }
 
+}
+/*
 //create
 exports.create = function(req, res){
     return res.render('admin/recipes/create')
@@ -59,3 +61,4 @@ exports.put = function(req, res){
 exports.delete = function(req, res){
 
 }
+*/
