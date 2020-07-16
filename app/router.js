@@ -30,12 +30,15 @@ routes.get('/admin', function(req, res){
 
 //Admin -> Recipes
 routes.get('/admin/recipes', recipes.index)
+routes.get('/admin/recipes/create', recipes.create)
+
+routes.post('/admin/recipes', recipes.post)
 /*
-routes.get('/admin/receitas/create', receitas.create)
+
 routes.get('/admin/receitas/:id', receitas.show)
 routes.get('/admin/receitas/:id/edit', receitas.edit)
 
-routes.post('/admin/receitas', receitas.post)
+
 routes.put('/admin/receitas', receitas.put)
 routes.delete('/admin/receitas', receitas.delete)
 */

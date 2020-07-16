@@ -1,16 +1,25 @@
 const dados = require('../app/data.json')
+const Recipes = require('../models/Recipes')
 
 module.exports = {
     index(req, res){
         return res.render('admin/recipes/index', {receitas: dados.receitas})
+    },
+
+    async create(req, res){
+        const results = await Recipes.chefList()
+        const chefs = results.rows
+        return res.render('admin/recipes/create', {chefs})
+    },
+
+    async post(req, res){
+        await Recipes.update(req.body)
+
+        return res.redirect('/admin/recipes')
     }
 
 }
 /*
-//create
-exports.create = function(req, res){
-    return res.render('admin/recipes/create')
-}
 
 //show
 exports.show = function(req, res){
