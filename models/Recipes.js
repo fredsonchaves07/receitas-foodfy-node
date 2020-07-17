@@ -1,8 +1,16 @@
 const db = require('../config/db')
 
 module.exports = {
-    all(callback){
-        return
+    all(){
+        const query = `
+            SELECT 
+                chefs.name as author,
+                recipes.*
+            FROM recipes
+            INNER JOIN chefs
+            on chefs.id = recipes.id
+        `
+        return db.query(query)
     },
 
     chefList(){
@@ -13,9 +21,21 @@ module.exports = {
         return db.query(query)
     },
 
-    update(data){
-        console.log(data)
+    find(id){
+        const query = `
+            SELECT 
+                chefs.name as author,
+                recipes.*
+            FROM recipes
+            INNER JOIN chefs
+            on chefs.id = recipes.id
+            WHERE recipes.id = $1
+        `
 
+        return db.query(query, [id])
+    },
+
+    update(data){
         const query = `
             INSERT INTO recipes (
                 chef_id,

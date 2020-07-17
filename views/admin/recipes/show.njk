@@ -1,40 +1,38 @@
 {% extends "layout-admin.njk" %}
 {% block content %}
-    <div class="titulo-receita">
-        <h2>Receita: {{receita.title}}</h2>
-        <a href="{{receita.id}}/edit" class="button">Editar receita</a>
+<div class="content-header">
+    <h2>Receita: {{recipe.title}}</h2>
+    <a href="{{recipe.id}}/edit" class="button">Editar Receita</a>
+</div>
+<section class="recipe-show-header">
+    <img src="{{recipe.image}}">
+    <h1>{{recipe.title}}</h1>
+    <div>por {{recipe.author}}</div>
+</section>
+<section class="class-recipe-details">
+    <div class="item">
+        <h2>Ingredientes</h2>
+        <ul>
+            {% for ingredient in recipe.ingredients %}
+                <li>{{ingredient}}</li>
+            {% endfor %}
+        </ul>
     </div>
-    <div class="imagem-receita">
-        <img src="{{receita.image}}">
+    <div class="item">
+        <h2>Modo de Preparo</h2>
+        <ul>
+            {% for preparation in recipe.preparation %}
+                <li>{{preparation}}</li>
+            {% endfor %}
+        </ul>
+        </div>
+    {% if recipe.information != "" %}
+    <div class="item">
+        <h2>Informações adicionais</h2>
+        <p>
+            {{recipe.information}}
+        </p>
     </div>
-    <div class="informacoes-receita">
-        <h1>{{receita.title}}</h1>
-        <span>por {{receita.author}}</span>
-    </div>
-    <section class="detalhes-receita">
-        <div class="item">
-            <div>Igredientes</div>
-            <ul>
-                {% for ingrediente in receita.ingredients %}
-                    <li>{{ingrediente}}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="item">
-            <div>Modo de Preparo</div>
-            <ul>
-                {% for preparo in receita.preparation %}
-                    <li>{{preparo}}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% if receita.information != "" %}
-        <div class="item">
-            <div>Informações adicionais</div>
-            <p>
-                {{receita.information}}
-            </p>
-        </div>
-        {% endif %}
-    </section>
+    {% endif %}
+</section>
 {% endblock %}

@@ -31,6 +31,7 @@ routes.get('/admin', function(req, res){
 //Admin -> Recipes
 routes.get('/admin/recipes', recipes.index)
 routes.get('/admin/recipes/create', recipes.create)
+routes.get('/admin/receitas/:id', recipes.show)
 
 routes.post('/admin/recipes', recipes.post)
 /*

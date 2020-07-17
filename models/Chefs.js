@@ -15,7 +15,22 @@ module.exports = {
         })
     },
 
-    create(data, callback){
+    recipeList(id){
+        const query = `
+            SELECT chefs.id,
+                   chefs.name,
+                   recipes.image,
+                   recipes.title
+            FROM chefs
+            INNER JOIN recipes
+            ON chefs.id = recipes.chef_id
+            WHERE chefs.id = $1
+        `
+
+        return db.query(query, [id])
+    },
+
+    create(data){
         const query = `
             INSERT INTO chefs (
                 avatar_url,
@@ -30,30 +45,16 @@ module.exports = {
             new Date().toISOString()
         ]
 
-        db.query(query, values, (err, results) => {
-            if(err){
-                throw `Database Error! ${err}`
-            }
-
-            callback()
-        })
+        return db.query(query, values)
     },
 
-    find(id, callback){
+    find(id){
         const query = `
             SELECT * FROM chefs
             WHERE id = $1
         `
 
-        const value = [id]
-
-        db.query(query, value, (err, results) => {
-            if(err){
-                throw `Database error! ${err}`
-            }
-
-            callback(results.rows[0])
-        })
+        return db.query(query, [id])
     },
 
     update(data, callback){
