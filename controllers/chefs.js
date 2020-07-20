@@ -28,14 +28,12 @@ module.exports = {
         return res.render('admin/chefs/show', {chef, recipes})
     },
 
-    edit(req, res){
-        Chefs.find(req.params.id, (chef) => {
-            if(!chef){
-                return res.send('Chef not found')
-            }
+    async edit(req, res){
+        const result = await Chefs.find(req.params.id)
+        const chef = result.rows[0]
 
-            return res.render('admin/chefs/edit', {chef})
-        })
+        return res.render('admin/chefs/edit', {chef})
+    
     },
 
     put(req, res){

@@ -20,7 +20,8 @@ module.exports = {
             SELECT chefs.id,
                    chefs.name,
                    recipes.image,
-                   recipes.title
+                   recipes.title,
+                   recipes.id as recipeid
             FROM chefs
             INNER JOIN recipes
             ON chefs.id = recipes.chef_id

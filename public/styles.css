@@ -96,6 +96,20 @@ body, textarea, select{
     padding: 8px;
 }
 
+.card-details  div{
+    padding: 0px 4px 10px;
+    line-height: 18px;
+}
+
+.card-details  div:first-child{
+    font-size: 18px;
+}
+
+.card-details  div:nth-child(2){
+    font-size: 14px;
+    color: #777777;
+}
+
 :root{
     --primary-color: #6558c3;
     --warning-color: #DC4747
@@ -298,19 +312,6 @@ span{
     padding: 4px
 }
 
-.cards-recipes .card-details  div{
-    padding: 0px 4px 10px;
-    line-height: 18px;
-}
-
-.cards-recipes .card-details  div:first-child{
-    font-size: 18px;
-}
-
-.cards-recipes .card-details  div:nth-child(2){
-    font-size: 14px;
-    color: #777777;
-}
 
 /* Visualização da Receita */
 .recipe-show-header{
@@ -457,7 +458,11 @@ span{
 .chef-show-detail .item h2{
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.chef-show-detail .card-details{
+    padding: 4px;
 }
 
 /*
@@ -477,11 +482,12 @@ form .content-form{
     flex-direction: column;
 }
 
-form .content-form {
+form .content-form-avatar{
     text-align: center;
+    margin-bottom: 30px;
 }
 
-form .content-form img{
+form .content-form-avatar img{
     border-radius: 50%;
     width: 200px;
     height: 200px;

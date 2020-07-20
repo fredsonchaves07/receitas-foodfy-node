@@ -16,7 +16,7 @@ module.exports = {
     },
 
     async post(req, res){
-        await Recipes.update(req.body)
+        await Recipes.create(req.body)
 
         return res.redirect('/admin/recipes')
     },
@@ -26,6 +26,22 @@ module.exports = {
         let recipe = results.rows[0]
 
         return res.render('admin/recipes/show.njk', {recipe})
+    },
+
+    async edit(req, res){
+        let results = await Recipes.find(req.params.id)
+        const recipe = results.rows[0]
+        results = await Recipes.chefList()
+        const chefs = results.rows
+
+        return res.render('admin/recipes/edit.njk', {recipe, chefs})
+    },
+
+    async put(req, res){
+        await Recipes.update(req.body)
+        const id = req.body.id
+
+        return res.redirect(`/admin/recipes/${id}`)
     }
 
 }

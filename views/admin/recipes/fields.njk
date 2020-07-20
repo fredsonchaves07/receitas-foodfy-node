@@ -10,7 +10,7 @@
             {% for chef in chefs %}
                 <option value="{{chef.id}}"
                         {% if recipe.chef_id == chef.id %}
-                            checked
+                            selected
                         {% endif %}>
                         {{chef.name}}
                 </option>
@@ -64,6 +64,8 @@
         <label for="information">Informações adicionais</label>
         <textarea  name="information" placeholder="Digite as informações adicionais">{{recipe.information}}</textarea>
     </div>
+
+    <input type="hidden" name="id" value="{{recipe.id}}">
 
 </fieldset>
 

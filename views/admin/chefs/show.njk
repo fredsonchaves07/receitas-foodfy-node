@@ -19,7 +19,6 @@
                 <img src="{{recipe.image}}">
             </section>
             <section class="card-details">
-
                     <div>
                         {{recipe.title}}
                     </div>
@@ -27,9 +26,8 @@
                         por {{chef.name}}
                     </div>
                     <div>
-                        <a href="receitas/{{recipe.id}}">Visualizar</a>
+                        <a href="/admin/recipes/{{recipe.recipeid}}">Visualizar</a>
                     </div>
-
             </section>
         </div>
         {% endfor %}
