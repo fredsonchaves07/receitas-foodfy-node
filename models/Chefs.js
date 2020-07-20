@@ -18,7 +18,7 @@ module.exports = {
     recipeList(id){
         const query = `
             SELECT chefs.id,
-                   chefs.name,
+                   chefs.name as author,
                    recipes.image,
                    recipes.title,
                    recipes.id as recipeid
@@ -58,7 +58,7 @@ module.exports = {
         return db.query(query, [id])
     },
 
-    update(data, callback){
+    update(data){
         const query = `
             UPDATE chefs
             SET avatar_url = $1,
@@ -72,29 +72,14 @@ module.exports = {
             data.id
         ]
 
-        db.query(query, values, (err) => {
-            if(err){
-                throw `Database Error! ${err}`
-            }
-
-            callback()
-        })
+        return db.query(query, values)
     },
 
-    delete(id, callback){
+    delete(id){
         const query = `
             DELETE FROM chefs
             WHERE id = $1
         `
-
-        const value = [id]
-
-        db.query(query, value, (err) => {
-            if(err){
-                throw `Database Error! ${err}`
-            }
-
-            callback()
-        })
+        return db.query(query, [id])
     }
 }

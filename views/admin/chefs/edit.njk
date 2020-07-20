@@ -21,4 +21,5 @@
     <form action="/admin/chefs?_method=DELETE" method="POST" id="form-delete">
         <input type="hidden" name="id" value="{{chef.id}}">
     </form>
+{% include 'confirmationDelete.njk' %}
 {% endblock content %}

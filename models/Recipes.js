@@ -8,7 +8,7 @@ module.exports = {
                 recipes.*
             FROM recipes
             INNER JOIN chefs
-            on chefs.id = recipes.id
+            on chefs.id = recipes.chef_id
         `
         return db.query(query)
     },
@@ -44,8 +44,7 @@ module.exports = {
                 ingredients,
                 preparation,
                 information,
-                created_at,
-                chef_id
+                created_at
             ) VALUES ($1, $2, $3, $4, $5, $6, $7)
         `
 

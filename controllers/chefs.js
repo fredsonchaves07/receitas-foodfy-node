@@ -12,10 +12,10 @@ module.exports = {
         return res.render('admin/chefs/create')
     },
 
-    post(req, res){
-        Chefs.create(req.body, () => {
-            return res.redirect('/admin/chefs')
-        })
+    async post(req, res){
+        await Chefs.create(req.body)
+
+        return res.redirect('/admin/chefs')
     },
 
     async show(req, res){
@@ -24,8 +24,9 @@ module.exports = {
         const chef = results.rows[0]
         result = await Chefs.recipeList(req.params.id)
         const recipes = result.rows
+        const contRecipes = recipes.length
 
-        return res.render('admin/chefs/show', {chef, recipes})
+        return res.render('admin/chefs/show', {chef, recipes, contRecipes})
     },
 
     async edit(req, res){
@@ -36,15 +37,16 @@ module.exports = {
     
     },
 
-    put(req, res){
-        Chefs.update(req.body, () =>{
-            return res.redirect('/admin/chefs')
-        })
+    async put(req, res){
+        await Chefs.update(req.body)
+        
+        return res.redirect('/admin/chefs')
+
     },
 
-    delete(req, res){
-        Chefs.delete(req.body.id, () =>{
-            return res.send('Excluiu')
-        })
+    async delete(req, res){
+        await Chefs.delete(req.body.id)
+
+        return res.redirect('/admin/chefs')
     }
 }
