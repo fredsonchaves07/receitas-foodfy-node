@@ -86,5 +86,14 @@ module.exports = {
         ]
 
         return db.query(query, values)
+    },
+
+    delete(id){
+        const query = `
+            DELETE FROM recipes
+            WHERE id = $1
+        `
+
+        return db.query(query, [id])
     }
 }

@@ -42,6 +42,12 @@ module.exports = {
         const id = req.body.id
 
         return res.redirect(`/admin/recipes/${id}`)
+    },
+
+    async delete(req, res){
+        await Recipes.delete(req.body.id)
+
+        return res.redirect('/admin/recipes')
     }
 
 }
