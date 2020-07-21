@@ -1,6 +1,16 @@
 const modal = document.querySelector('.modal-background')
 const receitas = document.querySelectorAll('.receitas')
 
+const currentPage = location.pathname
+const menuItem = document.querySelectorAll('header div:nth-child(2) a')
+console.log(menuItem)
+
+for(item of menuItem){
+    if(currentPage.includes(item.getAttribute('href'))){
+        item.classList.add('active')
+    }
+}
+
 for(let receita of receitas){
     receita.addEventListener("click", function(){
         console.log('ola')

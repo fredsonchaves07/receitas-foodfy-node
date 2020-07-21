@@ -1,4 +1,4 @@
-{% extends "layout-admin.njk" %}
+{% extends "components/layout-admin.njk" %}
 {% block content %}
     <div class="content-header">
         <h2>Editando receita</h2>
@@ -20,6 +20,6 @@
         <input type="hidden" name="id" value="{{recipe.id}}">
     </form>
     
-{% include "confirmationDelete.njk" %}
-{% include "utils.njk" %}
+{% include "components/confirmationDelete.njk" %}
+{% include "components/utils.njk" %}
 {% endblock %}

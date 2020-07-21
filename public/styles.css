@@ -3,6 +3,25 @@
 
 
 /* Estilizações globais */
+:root{
+    --primary-color: #6558c3;
+    --warning-color: #DC4747
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+header{
+    background-color: black;
+}
+
+body, textarea, select{
+    font-family: 'Roboto', sans-serif;
+}
+
 a{
     text-decoration: none;
     color: var(--primary-color);
@@ -25,15 +44,6 @@ button:focus, input[type="button"]{
     outline: thin;
 }
 
-form .item{
-    margin-bottom: 30px;
-}
-
-form .item label{
-    font-size: 16px;
-    font-weight: bold;
-}
-
 form input, textarea, select{
     padding: 15px;
     margin-top: 10px;
@@ -50,6 +60,7 @@ form input, textarea, select{
 select:invalid {
     color: gray;
   }
+
 textarea {
     resize: none;
     line-height: 24px;
@@ -59,10 +70,14 @@ textarea {
     text-indent: initial
 }
 
-body, textarea, select{
-    font-family: 'Roboto', sans-serif;
+form .item{
+    margin-bottom: 30px;
 }
 
+form .item label{
+    font-size: 16px;
+    font-weight: bold;
+}
 
 .button{
     text-decoration: none;
@@ -113,57 +128,54 @@ body, textarea, select{
     color: #777777;
 }
 
-:root{
-    --primary-color: #6558c3;
-    --warning-color: #DC4747
+.container{
+    margin: 50px auto;  
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-
-
-
-/*
-main{
-    max-width: 70%;
-    margin: 0px auto;
-}*/
-
-.navegacao, .container{
+/*Navegação*/
+header div, .container{
     width: 80%;
-    margin: 0px auto;
     box-sizing: border-box
 }
 
-.navegacao{
-    padding: 20px;
+header div:first-child{
+    padding: 20px 20px 20px 0;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.container{
-    margin-top: 50px;
-    
+header div:nth-child(2) {
+    display: flex;
 }
 
-/*
-.navegacao .logo-foodfy{
-    position: relative;
-    top: 8px;
+header div:nth-child(2) a{
+    color: #999999;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-right: 30px;
 }
-*/
 
-.navegacao a{
-    font-size: 16px;
-    text-decoration: none;
+header div:nth-child(2) a:hover, header div:nth-child(2) a.active{
     color: white;
-    line-height: 10%;
 }
 
-header{
-    background-color: black;
+header div:nth-child(2) a:last-child{
+    margin-right: 0;
 }
+
+header div .logo-foodfy{
+    display: inline-block;
+    height: 30px;
+}
+
+header div .logo-foodfy img{
+    box-sizing: border-box;
+    height: 30px;
+}
+
 
 .mudar{
     margin-top: 4%;

@@ -1,4 +1,4 @@
-const dados = require('../app/data.json')
+
 const Recipes = require('../models/Recipes')
 
 module.exports = {

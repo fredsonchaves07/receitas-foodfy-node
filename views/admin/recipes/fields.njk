@@ -30,12 +30,12 @@
             {% if recipe %}
                 {% for ingredient in recipe.ingredients %}
                 <div class="ingredient">
-                    <input value="{{ingredient}}" type="text" name="ingredients[]" placeholder="Digite o ingrediente" > 
+                    <input value="{{ingredient}}" type="text" name="ingredients[]" placeholder="Digite o ingrediente" required> 
                 </div> 
                 {% endfor %}
             {% else %}
                 <div class="ingredient">
-                    <input value="{{ingredient}}" type="text" name="ingredients[]" placeholder="Digite o ingrediente" > 
+                    <input value="{{ingredient}}" type="text" name="ingredients[]" placeholder="Digite o ingrediente" required> 
                 </div> 
             {% endif %}
             
