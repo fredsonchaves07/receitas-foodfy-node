@@ -25,6 +25,10 @@ module.exports = {
         const results = await Recipes.find(req.params.id)
         let recipe = results.rows[0]
 
+        if(!recipe){
+            return res.send('Recipe not found!')
+        }
+
         return res.render('admin/recipes/show.njk', {recipe})
     },
 
@@ -33,6 +37,10 @@ module.exports = {
         const recipe = results.rows[0]
         results = await Recipes.chefList()
         const chefs = results.rows
+
+        if(!recipe){
+            return res.send('Recipe not found!')
+        }
 
         return res.render('admin/recipes/edit.njk', {recipe, chefs})
     },

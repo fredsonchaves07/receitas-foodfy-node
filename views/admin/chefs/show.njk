@@ -2,22 +2,22 @@
 {% block content %}
 <div class="content-header">
     <h2>Chef: {{chef.name}}</h2>
-    <a href="{{chef.id}}/edit" class="button">Editar chef</a>
+    <a href="/admin/chefs/{{chef.id}}/edit" class="button">Editar chef</a>
 </div>
 <section class="chef-show-header">
-    <img src="{{chef.avatar_url}}" alt="">
+    <img src="{{chef.avatar_url}}" alt="avatar do chef">
     <h1>{{chef.name}}</h1>
     <div>{{contRecipes}} Receitas</div>
 </section>
 <section class="chef-show-detail">
     <div class="item">
         <h2>Receitas</h2>
-
-        <div class="cards cards-recipes">
+        {% if recipes != "" %}
+            <div class="cards cards-recipes">
         {% for recipe in recipes %}
         <div class="card">
             <section class="card-img-recipe">
-                <img src="{{recipe.image}}">
+                <img src="{{recipe.image}}" alt="imagem da receita {{recipe.title}}">
             </section>
             <section class="card-details">
 
@@ -28,13 +28,15 @@
                         por {{recipe.author}}
                     </div>
                     <div>
-                        <a href="recipes/{{recipe.id}}">Visualizar</a>
+                        <a href="/admin/recipes/{{recipe.recipeid}}">Visualizar</a>
                     </div>
 
             </section>
         </div>
         {% endfor %}
-    </div>
+        {%else%}
+            <p>Nenhuma receita cadastrada</p>
+        {% endif %}
     </div>
 </section>
 {% endblock content %}

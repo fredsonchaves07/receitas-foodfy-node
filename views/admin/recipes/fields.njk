@@ -1,12 +1,13 @@
 <fieldset>
     <div class="item">
         <label for="image">Imagem da receita</label>
-        <input value="{{recipe.image}}" type="text" name="image" placeholder="Digite o caminho da imagem">
+        <input value="{{recipe.image}}" type="text" name="image" placeholder="Digite o caminho da imagem" required>
     </div>
 
     <div class="item">
         <label for="chef_id">Chef</label>
-        <select name="chef_id" id="" required>
+        
+        <select name="chef_id" id="" required> 
             <option value="" disabled selected >Selecione o chef</option>
             {% for chef in chefs %}
                 <option value="{{chef.id}}"
@@ -21,7 +22,7 @@
 
     <div class="item">
         <label for="title">Título da Receita</label>
-        <input value="{{recipe.title}}" type="text" name="title" placeholder="Digite o nome da receita" > 
+        <input value="{{recipe.title}}" type="text" name="title" placeholder="Digite o nome da receita" required> 
     </div>
 
     <div class="item">
@@ -49,12 +50,12 @@
             {% if recipe %}
                 {% for preparation in recipe.preparation %}
                 <div class="preparation">
-                    <input value="{{preparation}}" type="text" name="preparation[]" placeholder="Digite o modo de preparo" >
+                    <input value="{{preparation}}" type="text" name="preparation[]" placeholder="Digite o modo de preparo" required>
                 </div>
                 {% endfor %}
             {% else %}
                 <div class="preparation">
-                    <input value="{{preparation}}" type="text" name="preparation[]" placeholder="Digite o modo de preparo" >
+                    <input value="{{preparation}}" type="text" name="preparation[]" placeholder="Digite o modo de preparo" required>
                 </div>
             {% endif %}
         </div>

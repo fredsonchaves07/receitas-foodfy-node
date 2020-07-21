@@ -52,9 +52,17 @@ form input, textarea, select{
     width: 100%;
     box-sizing: border-box;
     background-color: white;
+    
+
+}
+
+select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    background-image: url('img/keyboard_arrow_down-black-18dp.svg');
+    background-repeat: no-repeat;
+    background-position: right .7em top 50%, 0 0;
 }
 
 select:invalid {
@@ -94,6 +102,10 @@ form .item label{
 
 .button-delete{
     background-color: var(--warning-color);
+}
+
+.button-disabled{
+    background-color: gray;
 }
 
 .cards{
