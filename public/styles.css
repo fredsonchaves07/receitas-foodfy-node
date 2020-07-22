@@ -106,6 +106,7 @@ form .item label{
 
 .button-disabled{
     background-color: gray;
+    cursor: initial;
 }
 
 .cards{
@@ -506,12 +507,11 @@ span{
 /* Edição do formulário */
 form .content-form{
     display: flex;
-    flex-direction: column;
+    justify-content: baseline;
 }
 
 form .content-form-avatar{
-    text-align: center;
-    margin-bottom: 30px;
+    margin-right: 40px;
 }
 
 form .content-form-avatar img{
@@ -519,4 +519,8 @@ form .content-form-avatar img{
     width: 200px;
     height: 200px;
     box-sizing: border-box;
+}
+
+form .content-form div:nth-child(2){
+    flex: 1;
 }
