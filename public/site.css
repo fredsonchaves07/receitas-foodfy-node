@@ -1,0 +1,35 @@
+header{
+    background-color: white;
+}
+
+header div:nth-child(2) a{
+    color: #00000098;
+}
+
+header div:nth-child(2) a:hover, header div:nth-child(2) a.active{
+    color: black;
+}
+
+/*Index */
+.banner-recipes{
+    display: flex;
+    background-color: #FBDFDB;
+    justify-content: space-between;
+    border-radius: 30px;
+}
+
+.banner-recipes div img{
+    width: 200px;
+}
+
+.banner-recipes div:first-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 60px;
+    flex: 0.5;
+}
+
+.banner-recipes div:first-child h1{
+    font-size: 30px;
+}

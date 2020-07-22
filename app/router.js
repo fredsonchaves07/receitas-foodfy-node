@@ -2,10 +2,10 @@ const express = require('express')
 const routes = express.Router()
 const recipes = require('../controllers/recipes')
 const chefs = require('../controllers/chefs')
+const site = require('../controllers/site')
 
-routes.get('/', function(req, res){
-    return res.render('index', {dados: dados})
-})
+/*Main Route */
+routes.get('/', site.index)
 
 routes.get('/receitas', function(req, res){
     return res.render('receitas', {dados: dados})
