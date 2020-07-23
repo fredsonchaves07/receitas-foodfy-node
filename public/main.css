@@ -47,8 +47,6 @@ form input, textarea, select{
     width: 100%;
     box-sizing: border-box;
     background-color: white;
-    
-
 }
 
 select {
@@ -141,7 +139,7 @@ form .item label{
 }
 
 header div, .container{
-    width: 80%;
+    width: 70%;
     box-sizing: border-box
 }
 
@@ -177,3 +175,12 @@ header div .logo-foodfy img{
     box-sizing: border-box;
     height: 30px;
 }
+
+footer{
+    text-align: center;
+    background-color: #EEEEEE;
+    padding: 1.5% 0;
+    font-size: 14px;
+    color: #999999;
+}
+

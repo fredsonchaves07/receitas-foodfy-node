@@ -1,17 +1,6 @@
-{% extends "components/layout-site.njk" %}
+{% extends 'components/layout-site.njk' %}
 {% block content %}
-    <div class="banner-recipes">
-        <div>
-            <h1>As melhores receitas</h1>
-            <p>Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro</p>
-        </div>
-        <div>
-            <img src="/img/chef.png" alt="logo do chef">
-        </div>
-    </div>
-
     <div class="recipe-acessed">
-        <h2>Mais acessadas</h2>
         <div class="cards-recipe-acessed">
             {% for recipe in recipes %}
             <div class="card-recipe-acessed">
@@ -21,5 +10,5 @@
             </div>
             {% endfor %}
         </div>
-    </div>
+    </div>   
 {% endblock %}

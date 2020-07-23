@@ -6,21 +6,10 @@ const site = require('../controllers/site')
 
 /*Main Route */
 routes.get('/', site.index)
-
-routes.get('/receitas', function(req, res){
-    return res.render('receitas', {dados: dados})
-})
-
-routes.get('/receitas/:id', function(req, res){
-    const receita = dados
-    const id = req.params.id
-
-    return res.render('detalhes_receita', {receita: receita[id]})
-})
-
-routes.get('/sobre', function(req, res){
-    return res.render('sobre')
-})
+routes.get('/about', site.about)
+routes.get('/recipes', site.recipes)
+routes.get('/recipes/:id', site.showRecipe)
+routes.get('/chefs', site.chefs)
 
 //Rotas para página administrativa
 routes.get('/admin', function(req, res){

@@ -1,0 +1,21 @@
+{% extends 'components/layout-site.njk' %}
+{% block content %}
+    <div class="cards cards-chefs">
+        {% for chef in chefs %}
+        
+        <div class="card">
+            <section class="card-img-chef">
+                <img src="{{chef.avatar_url}}" alt="foto do chef {{chef.name}}">
+            </section>
+            <section class="card-details">
+                <div>
+                    {{chef.name}}
+                </div>
+                <div>
+                    {{chef.countrecipes}} receitas
+                </div>
+            </section>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

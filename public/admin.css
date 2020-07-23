@@ -83,14 +83,6 @@ header div:nth-child(2) a:hover, header div:nth-child(2) a.active{
     color: rgba(1, 1, 1, 70%);
 }
 
-footer{
-    text-align: center;
-    background-color: #EEEEEE;
-    padding: 1.5% 0;
-    font-size: 14px;
-    color: #999999;
-}
-
 .detalhes_receita{
     margin-top: 8%;
     text-align: center;
@@ -141,25 +133,6 @@ span{
     color: #444444;
     font-size: 18px;
     margin-bottom: 25px;
-}
-
-/*Gerenciar Receitas - Admin */
-.cards-recipes{
-    grid-template-columns: 1fr 1fr;
-}
-
-.card-img-recipe{
-    margin-right: 15px;
-}
-
-.card-img-recipe img{
-    border-radius: 10px;
-    width: 172px;
-    height: 82px;
-}
-
-.cards-recipes .card-details{
-    padding: 4px
 }
 
 
@@ -250,6 +223,24 @@ span{
     font-weight: bold;
 }*/
 
+/* Gerenciar recipes */
+.cards-recipes{
+    grid-template-columns: 1fr 1fr;
+}
+
+.card-img-recipe{
+    margin-right: 15px;
+}
+
+.card-img-recipe img{
+    border-radius: 10px;
+    width: 172px;
+    height: 82px;
+}
+
+.cards-recipes .card-details{
+    padding: 4px
+}
 
 
 /* Refactor - chefs */
@@ -258,7 +249,7 @@ span{
     align-items: center;
     justify-content: space-between;
     margin-bottom: 50px;
-   
+
 }
 
 .content-header div{
