@@ -36,5 +36,12 @@ module.exports = {
         }
 
         return res.render('site/show-recipe', {recipe})
+    },
+
+    async filter(req, res){
+        const {filter} = req.query
+        const results = await data.filter(req.query.filter)
+        const recipes = results.rows
+        return res.render('site/filter', {recipes, filter})
     }
 }

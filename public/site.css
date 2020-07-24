@@ -10,6 +10,34 @@ header div:nth-child(2) a:hover, header div:nth-child(2) a.active{
     color: black;
 }
 
+header div:first-child{
+    display: grid;
+    grid-template-columns: 0.7fr 1fr 1fr;
+}
+
+header .search {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header .search form{
+    display: flex;
+}
+
+header .search input{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 0 8px 10px;
+    width: 250px;
+    margin-right: 6px;
+    margin-top: 0;
+}
+
+header .search .button{
+    padding: 5px;
+    width: 100px;
+}
+
 /*Index */
 .banner-recipes{
     display: flex;

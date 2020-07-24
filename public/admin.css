@@ -11,7 +11,6 @@ header div:nth-child(2) a:hover, header div:nth-child(2) a.active{
     color: white;
 }
 
-
 .mudar{
     margin-top: 4%;
     margin-bottom: 6%;
@@ -318,9 +317,11 @@ span{
 
 
 /* Edição do formulário */
+
 form .content-form{
     display: flex;
     justify-content: baseline;
+    flex: 1;
 }
 
 form .content-form-avatar{

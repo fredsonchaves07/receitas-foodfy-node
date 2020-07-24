@@ -38,5 +38,16 @@ module.exports = {
         `
 
         return db.query(query)
+    },
+
+    filter(filter){
+        const query = `
+            SELECT recipes.*, chefs.name as author FROM recipes
+            INNER JOIN chefs
+            on chefs.id = recipes.chef_id
+            WHERE title LIKE '%${filter}%'
+        `
+
+        return db.query(query)
     }
 }
