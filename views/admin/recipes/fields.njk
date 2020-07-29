@@ -1,7 +1,17 @@
 <fieldset>
     <div class="item">
-        <label for="image">Imagem da receita</label>
-        <input value="{{recipe.image}}" type="text" name="image" placeholder="Digite o caminho da imagem" required>
+        <label for="">Imagem da receita</label>
+        <div>
+            <label id="photo-upload" for="photos" >
+                <input type="file" 
+                   name="photos" 
+                   id="photos"
+                   accept="image/*">
+                <i class="material-icons">add</i> 
+            </label> 
+
+
+        </div>
     </div>
 
     <div class="item">
