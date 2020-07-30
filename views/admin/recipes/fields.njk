@@ -6,10 +6,13 @@
                 <input type="file" 
                    name="photos" 
                    id="photos"
-                   accept="image/*">
+                   accept="image/*"
+                   multiple
+                   onchange = "PhotosUpload.fileUpload(event)">
                 <i class="material-icons">add</i> 
             </label> 
-
+            <div id="photos-preview">
+            </div>
 
         </div>
     </div>
