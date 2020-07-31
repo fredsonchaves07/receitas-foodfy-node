@@ -31,59 +31,53 @@ document.querySelector('.close-modal').addEventListener("click", function(){
 })*/
 
 const PhotosUpload = {
+    limitPhoto: 5,
     photosList: [],
-    filesList: [],
     photoPreview: document.querySelector('#photos-preview'),
     
     fileUpload(event){
         const {files} = event.target
+        
 
-        Array.from(files).forEach(photo => {
-            this.filesList.push(photo)
-        })
-
-        console.log(this.filesList.length)
-    
-
-        if(this.hasLimit()){
-            alert('Não é possível enviar mais de 5 fotos')
+        if(this.hasLimit(files)){
             event.preventDefault()
+            alert('Não é possível enviar mais de 5 fotos')
         } else{
-            this.filesList.forEach(file => {
+            Array.from(files).forEach(file => {
                 this.photosList.push(file)
+    
+                const reader = new FileReader()
+
+                reader.onload = () => {
+                    const image = new Image()
+                    image.src = String(reader.result)
+
+                    const div = this.containerPhoto(image)
+
+                    this.photoPreview.appendChild(div)
+                }
+
+                reader.readAsDataURL(file)
             })
+
         }
-
-        console.log(this.photosList.length)
-
-        /*if(this.hasLimit()){
-            alert('Não é possível enviar mais de 5 fotos')
-            event.preventDefault()
-        } else{
-            Array.from(this.filesList).forEach(photo => {
-                this.photosList.push(photo)
-            })
-
-            console.log(this.photosList.length)
-            const reader = new FileReader()
-            console.log(this.filesList.length)
-        }*/
-
 
     },
 
-    hasLimit(){
-        if(this.photosList.length > 5 || this.filesList.length > 5){
+    containerPhoto(image){
+        const div = document.createElement('div')
+        div.classList.add('photo')
+
+        div.appendChild(image)
+
+        return div
+    },
+
+    hasLimit(files){
+        if((this.photosList.length + files.length) > this.limitPhoto){
             return true
         }
 
         return false;
     },
-
-    divPhoto(image){
-        const div = document.createElement('div')
-        div.classList.add('photo')
-
-        div.appendChild(image)
-    }
 }
