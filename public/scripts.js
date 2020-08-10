@@ -1,5 +1,3 @@
-
-
 const modal = document.querySelector('.modal-background')
 const receitas = document.querySelectorAll('.receitas')
 
@@ -25,10 +23,6 @@ for(let receita of receitas){
         modal.querySelector('.autor').textContent = autor
     })
 }
-/*
-document.querySelector('.close-modal').addEventListener("click", function(){
-    modal.classList.remove('active')
-})*/
 
 const PhotosUpload = {
     limitPhoto: 5,
