@@ -317,7 +317,6 @@ span{
 
 
 /* Edição do formulário */
-
 form .content-form{
     display: flex;
     justify-content: baseline;
@@ -337,4 +336,64 @@ form .content-form-avatar img{
 
 form .content-form div:nth-child(2){
     flex: 1;
+}
+
+/* Upload image */
+form .item label{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form .item div #photo-upload{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    align-items: center;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+form .item div #photo-upload input[type='file']{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+    display: none;
+}
+
+form .item div #photo-upload i{
+    color: #777;
+    font-size: 40px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.photo-item{
+    display: flex;
+    margin-top: 10px;
+}
+
+.photo-item #photos-preview{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.photo-item #photos-preview .photo{
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    width: 150px;
+    height: 150px;
+}
+
+.photo-item #photos-preview img{
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
 }

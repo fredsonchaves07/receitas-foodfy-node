@@ -75,42 +75,6 @@ form .item{
     margin-bottom: 30px;
 }
 
-form .item label{
-    font-size: 16px;
-    font-weight: bold;
-}
-
-form .item div #photo-upload{
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    width: 150px;
-    height: 150px;
-    margin-top: 10px;
-    display: flex;
-    cursor: pointer;
-    position: relative;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-form .item div #photo-upload input[type='file']{
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    overflow: hidden;
-    display: none;
-}
-
-form .item div #photo-upload i{
-    color: #777;
-    font-size: 40px;
-    text-align: center;
-    margin: 0 auto;
-}
-
 .button{
     text-decoration: none;
     background-color: #6558C3;
