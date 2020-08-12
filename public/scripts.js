@@ -60,9 +60,15 @@ const PhotosUpload = {
 
     containerPhoto(image){
         const div = document.createElement('div')
-        div.classList.add('photo')
+        const i = document.createElement('i')
+        
+        i.classList.add('material-icons')
+        i.addEventListener('click', this.removePhoto)
+        i.innerText = 'close'
 
+        div.classList.add('photo')
         div.appendChild(image)
+        div.appendChild(i)
 
         return div
     },
@@ -74,4 +80,8 @@ const PhotosUpload = {
 
         return false;
     },
+
+    removePhoto(event){
+        console.log('oi')
+    }
 }

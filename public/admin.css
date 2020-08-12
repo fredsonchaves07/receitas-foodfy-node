@@ -351,7 +351,6 @@ form .item div #photo-upload{
     height: 150px;
     display: flex;
     cursor: pointer;
-    position: relative;
     align-items: center;
     border-radius: 3px;
     margin-right: 10px;
@@ -381,19 +380,48 @@ form .item div #photo-upload i{
 
 .photo-item #photos-preview{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 10px;
 }
 
 .photo-item #photos-preview .photo{
-    border: 1px solid #ddd;
-    border-radius: 3px;
     width: 150px;
     height: 150px;
+    position: relative;
 }
 
-.photo-item #photos-preview img{
+.photo-item #photos-preview .photo:hover{
+    cursor: pointer;
+}
+
+.photo-item #photos-preview .photo img{
     width: 100%;
     height: 100%;
+    border: 1px solid #ddd;
     border-radius: 3px;
 }
+
+.photo-item #photos-preview .photo i{
+    font-size: 40px;
+    color: #ff000f;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55px;
+    opacity: 0;
+}
+
+
+
+.photo:hover img{
+    opacity: 0.15;
+}
+
+.photo-item #photos-preview .photo:hover i{
+    opacity: 1;
+}
+
+
+
+
