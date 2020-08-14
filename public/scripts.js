@@ -31,6 +31,8 @@ const PhotosUpload = {
     
     fileUpload(event){
         const {files} = event.target
+        console.log(this.photosList)
+        console.log(files)
         
 
         if(this.hasLimit(files)){
@@ -82,6 +84,11 @@ const PhotosUpload = {
     },
 
     removePhoto(event){
-        console.log('oi')
+        const photoDiv = event.target.parentNode
+        
+        photoDiv.remove()
+
+        console.log(event)
+        console.log(PhotosUpload.photosList)
     }
 }
