@@ -28,11 +28,10 @@ const PhotosUpload = {
     limitPhoto: 5,
     photosList: [],
     photoPreview: document.querySelector('#photos-preview'),
-    
+    teste: null,
     fileUpload(event){
         const {files} = event.target
-        console.log(this.photosList)
-        console.log(files)
+        PhotosUpload.teste = files
         
 
         if(this.hasLimit(files)){
@@ -57,6 +56,9 @@ const PhotosUpload = {
             })
 
         }
+
+        console.log(this.photosList)
+        console.log(files)
 
     },
 
@@ -85,10 +87,13 @@ const PhotosUpload = {
 
     removePhoto(event){
         const photoDiv = event.target.parentNode
-        
-        photoDiv.remove()
+        const photoArray = Array.from(PhotosUpload.photoPreview.children)
+        const index = photoArray.indexOf(photoDiv)
 
-        console.log(event)
+        photoDiv.remove()
+        PhotosUpload.photosList.splice(index, 1)
         console.log(PhotosUpload.photosList)
+        PhotosUpload.teste = null
+        console.log(PhotosUpload.teste)
     }
 }
