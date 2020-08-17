@@ -1,11 +1,19 @@
 <fieldset>
-    <div class="item">
-        <label for="avatar_url">Avatar URL</label>
-        <input value="{{chef.avatar_url}}" type="url" name="avatar_url" placeholder="http://" required>
-    </div>
+
     <div class="item">
         <label for="name">Nome</label>
         <input value="{{chef.name}}" type="text" name="name" placeholder="Digite o nome do chef" required>
+    </div>
+
+    <div class="item">
+        <label for="avatar_url">Avatar URL</label>
+            <label id="photo-upload" for="avatar_url" class="button">
+                <input type="file" 
+                   name="avatar_url" 
+                   id="avatar_url"
+                   accept="image/*">
+                Enviar avatar
+            </label> 
     </div>
     
     <input type="hidden" name="id" value="{{chef.id}}">

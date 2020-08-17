@@ -22,28 +22,28 @@ module.exports = {
         
         let results = await Chefs.find(req.params.id)
         const chef = results.rows[0]
-        result = await Chefs.recipeList(req.params.id)
+        /*result = await Chefs.recipeList(req.params.id)
         const recipes = result.rows
-        const contRecipes = recipes.length
+        const contRecipes = recipes.length*/
 
         if(!chef){
             return res.send('Chef not found!')
         }
 
-        return res.render('admin/chefs/show', {chef, recipes, contRecipes})
+        return res.render('admin/chefs/show', {chef, /*recipes, contRecipes*/})
     },
 
     async edit(req, res){
         let result = await Chefs.find(req.params.id)
         const chef = result.rows[0]
-        result = await Chefs.recipeList(req.params.id)
-        const recipes = result.rows
+        /*result = await Chefs.recipeList(req.params.id)
+        const recipes = result.rows*/
 
         if(!chef){
             return res.send('Chef not found!')
         }
         
-        return res.render('admin/chefs/edit', {chef, recipes})
+        return res.render('admin/chefs/edit', {chef, /*recipes*/})
     
     },
 
