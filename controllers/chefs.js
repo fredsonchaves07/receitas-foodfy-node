@@ -12,8 +12,10 @@ module.exports = {
         return res.render('admin/chefs/create')
     },
 
-    async post(req, res){
-        await Chefs.create(req.body)
+    post(req, res){
+        /*await Chefs.create(req.body)*/
+        console.log(req.body)
+        console.log(req.files)
 
         return res.redirect('/admin/chefs')
     },

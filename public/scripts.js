@@ -28,12 +28,10 @@ const PhotosUpload = {
     limitPhoto: 5,
     photosList: [],
     photoPreview: document.querySelector('#photos-preview'),
-    teste: null,
+
     fileUpload(event){
         const {files} = event.target
-        PhotosUpload.teste = files
-        
-
+    
         if(this.hasLimit(files)){
             event.preventDefault()
             alert('Não é possível enviar mais de 5 fotos')
@@ -56,10 +54,6 @@ const PhotosUpload = {
             })
 
         }
-
-        console.log(this.photosList)
-        console.log(files)
-
     },
 
     containerPhoto(image){
