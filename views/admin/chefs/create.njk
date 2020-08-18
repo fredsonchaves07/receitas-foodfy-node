@@ -5,7 +5,7 @@
         <button form="form-create" type="submit" class="button">Salvar chef</button>
     </div>
 
-    <form action="/admin/chefs" method="post" id="form-create">
+    <form action="/admin/chefs" method="post" id="form-create" enctype="multipart/form-data">
         <div>
             {% include "admin/chefs/fields.njk" %}
         </div>
