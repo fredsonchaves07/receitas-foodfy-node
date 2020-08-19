@@ -31,17 +31,17 @@ module.exports = {
         return db.query(query, [id])
     },
 
-    create(data){
+    create(data, fileId){
         const query = `
             INSERT INTO chefs (
-                avatar_url,
+                file_id,
                 name,
                 created_at
             ) VALUES ($1, $2, $3)
         `
 
         const values = [
-            data.avatar_url,
+            fileId,
             data.name,
             new Date().toISOString()
         ]

@@ -1,4 +1,5 @@
 const Chefs = require('../models/Chefs')
+const File = require('../models/File')
 
 module.exports = {
     index(req, res){
@@ -12,10 +13,12 @@ module.exports = {
         return res.render('admin/chefs/create')
     },
 
-    post(req, res){
-        /*await Chefs.create(req.body)*/
-        console.log(req.body)
-        console.log(req.files)
+    async post(req, res){
+
+        let result = await File.create(req.files[0])
+        const fileId = result.rows[0].id
+
+        await Chefs.create(req.body, fileId)
 
         return res.redirect('/admin/chefs')
     },
@@ -24,15 +27,15 @@ module.exports = {
         
         let results = await Chefs.find(req.params.id)
         const chef = results.rows[0]
-        /*result = await Chefs.recipeList(req.params.id)
-        const recipes = result.rows
-        const contRecipes = recipes.length*/
+
+        result = await File.find(chef.file_id)
+        const avatarChef = result.rows[0].path.replace('public', '')
 
         if(!chef){
             return res.send('Chef not found!')
         }
 
-        return res.render('admin/chefs/show', {chef, /*recipes, contRecipes*/})
+        return res.render('admin/chefs/show', {chef, avatarChef})
     },
 
     async edit(req, res){

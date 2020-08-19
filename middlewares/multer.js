@@ -14,10 +14,7 @@ const fileFilter = (req, file, cb) => {
     const isAccepted = ['image/png', 'image/jpg', 'image/jpeg'].find(acceptedFormat => {
         return acceptedFormat == file.mimetype
     })
-
-    console.log(isAccepted)
-    console.log(file.mimetype)
-    
+        
     if(isAccepted){
         return cb(null, true)
     }
