@@ -3,7 +3,10 @@ const db = require('../config/db')
 module.exports = {
     all(callback){
         const query = `
-            SELECT * FROM chefs
+            SELECT files.path as avatar, chefs.* 
+            FROM chefs
+            INNER JOIN files
+            ON files.id = chefs.file_id
         `
 
         db.query(query, (err, results) => {
@@ -51,8 +54,11 @@ module.exports = {
 
     find(id){
         const query = `
-            SELECT * FROM chefs
-            WHERE id = $1
+            SELECT files.path as avatar, chefs.* 
+            FROM chefs
+            INNER JOIN files
+            ON files.id = chefs.file_id
+            WHERE chefs.id = $1
         `
 
         return db.query(query, [id])
@@ -61,13 +67,13 @@ module.exports = {
     update(data){
         const query = `
             UPDATE chefs
-            SET avatar_url = $1,
+            SET file_id = $1,
                 name = $2
             WHERE id = $3
         `
 
         const values = [
-            data.avatar_url,
+            data.avatar,
             data.name,
             data.id
         ]

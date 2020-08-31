@@ -2,6 +2,7 @@ const db = require('../config/db')
 const fs = require('fs')
 
 module.exports = {
+
     create(file){
         const query = `
             INSERT INTO files (
@@ -24,5 +25,20 @@ module.exports = {
             WHERE id = ${id}
         `
         return db.query(query)
+    },
+
+    update(data){
+        const query = `
+            UPDATE files
+            SET name = $1,
+                path = $2
+            WHERR files.id = $3
+        `
+
+        const values = [
+            data.name,
+            data.path,
+            data.chef_id
+        ]
     }
 }

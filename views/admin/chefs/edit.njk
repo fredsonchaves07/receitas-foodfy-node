@@ -11,10 +11,11 @@
             <button type="submit" class="button" form="form-edit">Salvar</button>
         </div>
     </div>
+    <!--//TODO - Implementar lógica de mudança dinâmica ao trocar a imagem de perfil -->
     <form action="/admin/chefs?_method=PUT" method="POST" id="form-edit">
         <div class="content-form">
             <div class="content-form-avatar">
-                <img src="{{chef.avatar_url}}" alt="foto do chef {{chef.name}}">
+                <img src="{{chef.avatar}}" alt="foto do chef {{chef.name}}">
             </div>
 
             <div>

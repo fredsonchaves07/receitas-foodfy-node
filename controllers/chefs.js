@@ -4,6 +4,12 @@ const File = require('../models/File')
 module.exports = {
     index(req, res){
         Chefs.all((chefs) => {
+
+            //TODO - Melhorar lógica de replace do caminho da imagem
+            for(let i = 0; i < chefs.length; i ++){
+                chefs[i].avatar = chefs[i].avatar.replace('public', '')
+            }
+
             return res.render('admin/chefs/index', {chefs})
         })
         
@@ -47,12 +53,21 @@ module.exports = {
         if(!chef){
             return res.send('Chef not found!')
         }
+
+        chef.avatar = chef.avatar.replace('public', '')
         
         return res.render('admin/chefs/edit', {chef, /*recipes*/})
     
     },
 
     async put(req, res){
+        const dataFiles = {
+            ...req.files,
+            chef_id: req.body.id
+        }
+
+        await File.update(dataFiles)
+
         await Chefs.update(req.body)
         
         return res.redirect('/admin/chefs')
