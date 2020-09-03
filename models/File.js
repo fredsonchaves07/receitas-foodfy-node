@@ -32,7 +32,7 @@ module.exports = {
             UPDATE files
             SET name = $1,
                 path = $2
-            WHERR files.id = $3
+            WHERE files.id = $3
         `
 
         const values = [

@@ -20,6 +20,8 @@ module.exports = {
     },
 
     async post(req, res){
+        console.log(req.files)
+        console.log(req.files[0])
 
         let result = await File.create(req.files[0])
         const fileId = result.rows[0].id
@@ -65,6 +67,9 @@ module.exports = {
             ...req.files,
             chef_id: req.body.id
         }
+
+        console.log(req.body)
+        console.log(req.files)
 
         await File.update(dataFiles)
 
