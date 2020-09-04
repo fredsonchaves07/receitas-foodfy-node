@@ -73,7 +73,7 @@ module.exports = {
         `
 
         const values = [
-            data.avatar,
+            data.file_id,
             data.name,
             data.id
         ]

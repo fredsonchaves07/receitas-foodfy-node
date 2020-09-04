@@ -12,7 +12,7 @@
         </div>
     </div>
     <!--//TODO - Implementar lógica de mudança dinâmica ao trocar a imagem de perfil -->
-    <form action="/admin/chefs?_method=PUT" method="POST" id="form-edit">
+    <form action="/admin/chefs?_method=PUT" method="POST" id="form-edit" enctype="multipart/form-data">
         <div class="content-form">
             <div class="content-form-avatar">
                 <img src="{{chef.avatar}}" alt="foto do chef {{chef.name}}">

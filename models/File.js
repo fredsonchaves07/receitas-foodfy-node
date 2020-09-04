@@ -27,18 +27,19 @@ module.exports = {
         return db.query(query)
     },
 
-    update(data){
+    update(file, id){
         const query = `
             UPDATE files
             SET name = $1,
                 path = $2
-            WHERE files.id = $3
+            WHERE files.id = ${id}
         `
 
         const values = [
-            data.name,
-            data.path,
-            data.chef_id
+            file.filename,
+            file.path,
         ]
+
+        return db.query(query, values)
     }
 }

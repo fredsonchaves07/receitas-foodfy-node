@@ -1,5 +1,6 @@
 const Chefs = require('../models/Chefs')
 const File = require('../models/File')
+const fs = require('fs')
 
 module.exports = {
     index(req, res){
@@ -20,8 +21,6 @@ module.exports = {
     },
 
     async post(req, res){
-        console.log(req.files)
-        console.log(req.files[0])
 
         let result = await File.create(req.files[0])
         const fileId = result.rows[0].id
@@ -63,20 +62,14 @@ module.exports = {
     },
 
     async put(req, res){
-        const dataFiles = {
-            ...req.files,
-            chef_id: req.body.id
-        }
-
-        console.log(req.body)
-        console.log(req.files)
-
-        await File.update(dataFiles)
-
-        await Chefs.update(req.body)
+        const result = await File.find(req.body.file_id)
         
-        return res.redirect('/admin/chefs')
+        fs.unlinkSync(result.rows[0].path)
 
+        await File.update(req.files[0], req.body.file_id)
+        await Chefs.update(req.body)
+
+        return res.redirect('/admin/chefs')
     },
 
     async delete(req, res){
