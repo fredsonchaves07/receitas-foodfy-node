@@ -3,16 +3,16 @@ const File = require('../models/File')
 const fs = require('fs')
 
 module.exports = {
-    index(req, res){
-        Chefs.all((chefs) => {
+    async index(req, res){
+        const results = await Chefs.all()
+        const chefs = results.rows
 
-            //TODO - Melhorar lógica de replace do caminho da imagem
-            for(let i = 0; i < chefs.length; i ++){
-                chefs[i].avatar = chefs[i].avatar.replace('public', '')
-            }
+        //TODO - Melhorar lógica de replace do caminho da imagem
+        for(let i = 0; i < chefs.length; i ++){
+            chefs[i].avatar = chefs[i].avatar.replace('public', '')
+        }
 
-            return res.render('admin/chefs/index', {chefs})
-        })
+        return res.render('admin/chefs/index', {chefs})
         
     },
 

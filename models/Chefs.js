@@ -1,7 +1,7 @@
 const db = require('../config/db')
 
 module.exports = {
-    all(callback){
+    all(){
         const query = `
             SELECT files.path as avatar, chefs.* 
             FROM chefs
@@ -9,13 +9,7 @@ module.exports = {
             ON files.id = chefs.file_id
         `
 
-        db.query(query, (err, results) => {
-            if(err){
-                throw `Database Error! ${err}`
-            }
-            
-            callback(results.rows)
-        })
+        return db.query(query)
     },
 
     recipeList(id){
