@@ -1,3 +1,4 @@
+//TODO Organizar a estrutura de diretórios do projeto
 const express = require('express')
 const nunjucks = require('nunjucks')
 const routes = require('./router')
