@@ -1,3 +1,4 @@
+// TODO -> refatorar todo os scripts
 const modal = document.querySelector('.modal-background')
 const receitas = document.querySelectorAll('.receitas')
 
@@ -24,14 +25,17 @@ for(let receita of receitas){
     })
 }
 
+// TODO -> Refatorar objeto de envio de fotos (Pensar em uma ideia mais simples)
 const PhotosUpload = {
     limitPhoto: 5,
     photosList: [],
     photoPreview: document.querySelector('#photos-preview'),
+    fileList: null,
 
     fileUpload(event){
         const {files} = event.target
-    
+        PhotosUpload.fileList = files
+        
         if(this.hasLimit(files)){
             event.preventDefault()
             alert('Não é possível enviar mais de 5 fotos')
@@ -86,8 +90,6 @@ const PhotosUpload = {
 
         photoDiv.remove()
         PhotosUpload.photosList.splice(index, 1)
-        console.log(PhotosUpload.photosList)
-        PhotosUpload.teste = null
-        console.log(PhotosUpload.teste)
+        Array.from(PhotosUpload.fileList).splice(index, 1)
     }
 }
