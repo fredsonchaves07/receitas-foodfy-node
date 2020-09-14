@@ -53,7 +53,7 @@ const PhotosUpload = {
 
                     this.photoPreview.appendChild(div)
                 }
-
+                
                 reader.readAsDataURL(file)
             })
 
@@ -88,8 +88,13 @@ const PhotosUpload = {
         const photoArray = Array.from(PhotosUpload.photoPreview.children)
         const index = photoArray.indexOf(photoDiv)
 
-        photoDiv.remove()
+        Array.from(PhotosUpload.fileList).splice(index, 1);
         PhotosUpload.photosList.splice(index, 1)
-        Array.from(PhotosUpload.fileList).splice(index, 1)
+
+        console.log(Array.from(PhotosUpload.fileList))
+        console.log(PhotosUpload.photosList)
+        
+        photoDiv.remove()
+
     }
 }

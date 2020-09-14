@@ -1,5 +1,5 @@
-
 const Recipes = require('../models/Recipes')
+const File = require('../models/File')
 
 module.exports = {
     async index(req, res){
@@ -16,7 +16,16 @@ module.exports = {
     },
 
     async post(req, res){
-        await Recipes.create(req.body)
+
+        const result = await Recipes.create(req.body)
+        const recipe_id = result.rows[0].id
+        
+         req.files.forEach(async file =>  {
+            let result = await File.create(file)
+            let file_id = result.rows[0].id
+            
+            await Recipes.createRecipeFile(file_id, recipe_id)
+        })
 
         return res.redirect('/admin/recipes')
     },

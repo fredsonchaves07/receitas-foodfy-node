@@ -39,18 +39,17 @@ module.exports = {
         const query = `
             INSERT INTO recipes (
                 chef_id,
-                image,
                 title,
                 ingredients,
                 preparation,
                 information,
                 created_at
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+            ) VALUES ($1, $2, $3, $4, $5, $6)
+            RETURNING id
         `
 
         const values = [
             data.chef_id,
-            data.image,
             data.title,
             data.ingredients,
             data.preparation,
@@ -65,17 +64,15 @@ module.exports = {
     update(data){
         const query = `
             UPDATE recipes
-            SET image = $1,
-                title = $2,
-                ingredients = $3,
-                preparation = $4,
-                information = $5,
-                chef_id = $6
-            WHERE id = $7
+            SET title = $1,
+                ingredients = $2,
+                preparation = $3,
+                information = $4,
+                chef_id = $5
+            WHERE id = $6
         `
 
         const values = [
-            data.image,
             data.title,
             data.ingredients,
             data.preparation,
@@ -94,5 +91,17 @@ module.exports = {
         `
 
         return db.query(query, [id])
+    },
+
+    createRecipeFile(file_id, recipe_id){
+        const query = `
+            INSERT INTO recipe_files (
+                file_id,
+                recipe_id
+            )
+            VALUES (${file_id}, ${recipe_id})
+        `
+
+        return db.query(query)
     }
 }
