@@ -6,6 +6,16 @@ module.exports = {
         const results = await Recipes.all()
         const recipes = results.rows
 
+        for(recipe of recipes){
+            console.log(recipe)
+            let results = await Recipes.findRecipeFile(recipe.id)
+            let fileId = results.rows[0].file_id
+            
+            results = await File.find(fileId)
+            file = results.rows
+            recipe.image = file[0].path.replace('public', '')
+        }
+
         return res.render('admin/recipes/index', {recipes})
     },
 

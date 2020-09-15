@@ -103,5 +103,14 @@ module.exports = {
         `
 
         return db.query(query)
+    },
+
+    findRecipeFile(recipe_id){
+        const query = `
+            SELECT * FROM recipe_files 
+            WHERE recipe_id = ${recipe_id}
+        `
+
+        return db.query(query)
     }
 }
