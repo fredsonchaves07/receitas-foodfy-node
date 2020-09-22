@@ -88,12 +88,11 @@ const PhotosUpload = {
         const photoArray = Array.from(PhotosUpload.photoPreview.children)
         const index = photoArray.indexOf(photoDiv)
 
-        Array.from(PhotosUpload.fileList).splice(index, 1);
-        PhotosUpload.photosList.splice(index, 1)
-
-        console.log(Array.from(PhotosUpload.fileList))
-        console.log(PhotosUpload.photosList)
+        if(PhotosUpload.fileList){
+            Array.from(PhotosUpload.fileList).splice(index, 1);
+        }
         
+        PhotosUpload.photosList.splice(index, 1)
         photoDiv.remove()
 
     }

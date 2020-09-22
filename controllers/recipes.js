@@ -64,13 +64,26 @@ module.exports = {
     async edit(req, res){
         let results = await Recipes.find(req.params.id)
         const recipe = results.rows[0]
-        results = await Recipes.chefList()
-        const chefs = results.rows
 
         if(!recipe){
             return res.send('Recipe not found!')
         }
 
+        results = await Recipes.chefList()
+        const chefs = results.rows
+
+        results = await Recipes.findRecipeFile(req.params.id)
+        const recipeFiles = results.rows
+        const recipeImages = []
+
+        for(file of recipeFiles){
+            results = await File.find(file.file_id)
+            let recipeImage = results.rows[0].path.replace('public', '')
+            recipeImages.push(recipeImage)   
+        }
+
+        recipe.images = recipeImages
+        
         return res.render('admin/recipes/edit.njk', {recipe, chefs})
     },
 
