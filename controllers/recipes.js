@@ -1,5 +1,6 @@
 const Recipes = require('../models/Recipes')
 const File = require('../models/File')
+const fs = require('fs')
 
 module.exports = {
     async index(req, res){
@@ -73,25 +74,44 @@ module.exports = {
         const chefs = results.rows
 
         results = await Recipes.findRecipeFile(req.params.id)
-        const recipeFiles = results.rows
-        const recipeImages = []
+        let recipeFiles = results.rows
 
         for(file of recipeFiles){
             results = await File.find(file.file_id)
             let recipeImage = results.rows[0].path.replace('public', '')
-            recipeImages.push(recipeImage)   
+            
+            file.path = recipeImage
         }
 
-        recipe.images = recipeImages
+        recipe.recipeFiles = recipeFiles
         
         return res.render('admin/recipes/edit.njk', {recipe, chefs})
     },
 
     async put(req, res){
-        await Recipes.update(req.body)
+        console.log(req.files)
+        console.log(req.body)
+        /*await Recipes.update(req.body)
         const id = req.body.id
+        
+        let results = await Recipes.findRecipeFile(id)
 
-        return res.redirect(`/admin/recipes/${id}`)
+        for(file of results.rows){
+            fs.unlinkSync.path
+
+            await File.delete(file.file_id)
+        }
+
+        await Recipes.deleteRecipeFile(id)
+
+        req.files.forEach(async file =>  {
+            let result = await File.create(file)
+            let file_id = result.rows[0].id
+            
+            await Recipes.createRecipeFile(file_id, recipe_id)
+        })  
+
+        return res.redirect(`/admin/recipes/${id}`)*/
     },
 
     async delete(req, res){

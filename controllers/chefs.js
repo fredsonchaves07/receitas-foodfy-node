@@ -43,7 +43,7 @@ module.exports = {
         }
 
         return res.render('admin/chefs/show', {chef, avatarChef})
-    },
+},
 
     async edit(req, res){
         let result = await Chefs.find(req.params.id)

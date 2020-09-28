@@ -13,13 +13,13 @@
             </label> 
             <div id="photos-preview">
 
-                    {% for image in recipe.images %}
+                    {% for image in recipe.recipeFiles %}
                         <div class="photo">
-                            <img src="{{image}}" alt="">
+                            <img src="{{image.path}}">
                             <i class="material-icons" onclick="PhotosUpload.removePhoto(event)">close</i>
                         </div>
                     {% endfor %}
-
+                   
             </div>  
         </div>
     </div>

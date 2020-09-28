@@ -8,7 +8,7 @@
         </div>
     </div>
     
-    <form action="/admin/recipes?_method=PUT" method="POST" id="form-edit">
+    <form action="/admin/recipes?_method=PUT" method="POST" id="form-edit" enctype="multipart/form-data">
         <div>
             {% include 'admin/recipes/fields.njk' %}
         </div>

@@ -31,8 +31,13 @@ const PhotosUpload = {
     photosList: [],
     photoPreview: document.querySelector('#photos-preview'),
     fileList: null,
+    inputFile: '',
 
     fileUpload(event){
+        const divPhotoCount = document.querySelector('#photos-preview').childElementCount
+
+        PhotosUpload.inputFile = event.target
+
         const {files} = event.target
         PhotosUpload.fileList = files
         
@@ -41,7 +46,7 @@ const PhotosUpload = {
             alert('Não é possível enviar mais de 5 fotos')
         } else{
             Array.from(files).forEach(file => {
-                this.photosList.push(file)
+                PhotosUpload.photosList.push(file)
     
                 const reader = new FileReader()
 
@@ -56,7 +61,6 @@ const PhotosUpload = {
                 
                 reader.readAsDataURL(file)
             })
-
         }
     },
 
@@ -76,7 +80,10 @@ const PhotosUpload = {
     },
 
     hasLimit(files){
-        if((this.photosList.length + files.length) > this.limitPhoto){
+        const divPhotoCount = document.querySelector('#photos-preview').childElementCount
+        
+        
+        if((divPhotoCount + files.length) > this.limitPhoto){
             return true
         }
 
@@ -95,5 +102,5 @@ const PhotosUpload = {
         PhotosUpload.photosList.splice(index, 1)
         photoDiv.remove()
 
-    }
+    },
 }
