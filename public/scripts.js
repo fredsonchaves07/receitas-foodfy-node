@@ -32,6 +32,7 @@ const PhotosUpload = {
     photoPreview: document.querySelector('#photos-preview'),
     fileList: null,
     inputFile: '',
+    photosRemoveId: [],
 
     fileUpload(event){
         const divPhotoCount = document.querySelector('#photos-preview').childElementCount
@@ -94,6 +95,17 @@ const PhotosUpload = {
         const photoDiv = event.target.parentNode
         const photoArray = Array.from(PhotosUpload.photoPreview.children)
         const index = photoArray.indexOf(photoDiv)
+        
+        if(photoDiv.id){
+            const removedFiles = document.querySelector('input[name="removed_files"]')
+
+            if(removedFiles){
+                PhotosUpload.photosRemoveId.push(photoDiv.id)
+            }
+
+            removedFiles.value = PhotosUpload.photosRemoveId
+            console.log(removedFiles)
+        }
 
         if(PhotosUpload.fileList){
             Array.from(PhotosUpload.fileList).splice(index, 1);

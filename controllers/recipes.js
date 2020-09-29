@@ -91,6 +91,21 @@ module.exports = {
     async put(req, res){
         console.log(req.files)
         console.log(req.body)
+
+        if(req.body.removed_files){
+            const removedFiles = req.body.removed_files.split(',')
+
+            removedFiles.forEach(async file =>  {
+                let result = await File.find(file)
+                fileData = result.rows[0]
+
+                fs.unlinkSync(fileData.path)
+
+                await Recipes.deleteRecipeFile(fileData.id)
+                await File.delete(fileData.id)
+            })
+        }
+
         /*await Recipes.update(req.body)
         const id = req.body.id
         
