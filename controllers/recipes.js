@@ -29,9 +29,6 @@ module.exports = {
 
         const result = await Recipes.create(req.body)
         const recipe_id = result.rows[0].id
-
-        console.log(req.body)
-        console.log(req.files)
         
          req.files.forEach(async file =>  {
             let result = await File.create(file)
@@ -89,8 +86,6 @@ module.exports = {
     },
 
     async put(req, res){
-        console.log(req.files)
-        console.log(req.body)
 
         if(req.body.removed_files){
             const removedFiles = req.body.removed_files.split(',')
@@ -106,30 +101,37 @@ module.exports = {
             })
         }
 
-        /*await Recipes.update(req.body)
-        const id = req.body.id
-        
-        let results = await Recipes.findRecipeFile(id)
-
-        for(file of results.rows){
-            fs.unlinkSync.path
-
-            await File.delete(file.file_id)
+        if(req.files){  
+             req.files.forEach(async file =>  {
+                let result = await File.create(file)
+                let file_id = result.rows[0].id
+                
+                await Recipes.createRecipeFile(file_id, req.body.id)
+            })
         }
 
-        await Recipes.deleteRecipeFile(id)
+        await Recipes.update(req.body)
 
-        req.files.forEach(async file =>  {
-            let result = await File.create(file)
-            let file_id = result.rows[0].id
-            
-            await Recipes.createRecipeFile(file_id, recipe_id)
-        })  
-
-        return res.redirect(`/admin/recipes/${id}`)*/
+        return res.redirect(`/admin/recipes/${req.body.id}`)
     },
 
     async delete(req, res){
+        
+        let result = await Recipes.findRecipeFile(req.body.id)
+        const recipeFiles = result.rows
+
+        recipeFiles.forEach(async file =>  {
+            let result = await File.find(file.file_id)
+            fileData = result.rows[0]
+
+            fs.unlinkSync(fileData.path)
+
+            await Recipes.deleteRecipeFile(fileData.id)
+            console.log(fileData)
+            await File.delete(fileData.id)
+
+        })
+
         await Recipes.delete(req.body.id)
 
         return res.redirect('/admin/recipes')
