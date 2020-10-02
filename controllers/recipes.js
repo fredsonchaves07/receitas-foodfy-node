@@ -91,6 +91,7 @@ module.exports = {
             const removedFiles = req.body.removed_files.split(',')
 
             removedFiles.forEach(async file =>  {
+
                 let result = await File.find(file)
                 fileData = result.rows[0]
 
@@ -120,16 +121,16 @@ module.exports = {
         let result = await Recipes.findRecipeFile(req.body.id)
         const recipeFiles = result.rows
 
-        recipeFiles.forEach(async file =>  {
-            let result = await File.find(file.file_id)
-            fileData = result.rows[0]
+        await Recipes.deleteRecipeFileAll(req.body.id)
 
+        recipeFiles.forEach(async file =>  {
+
+            let result2 = await File.find(file.file_id)
+            let fileData = result2.rows[0]
+            
             fs.unlinkSync(fileData.path)
 
-            await Recipes.deleteRecipeFile(fileData.id)
-            console.log(fileData)
             await File.delete(fileData.id)
-
         })
 
         await Recipes.delete(req.body.id)
