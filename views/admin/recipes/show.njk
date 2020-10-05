@@ -6,6 +6,12 @@
 </div>
 <section class="recipe-show-header">
     <img src="{{recipe.image}}" alt="imagem da receita {{recipe.title}}">
+    <div class="recipe-galery">
+        {% for image in recipe.images %}
+            <img src="{image}" alt="">
+            <h1>oi</h1>
+        {% endfor %}
+    </div>
     <h1>{{recipe.title}}</h1>
     <div>por {{recipe.author}}</div>
 </section>
