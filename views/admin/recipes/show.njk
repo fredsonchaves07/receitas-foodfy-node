@@ -5,11 +5,10 @@
     <a href="/admin/recipes/{{recipe.id}}/edit" class="button">Editar Receita</a>
 </div>
 <section class="recipe-show-header">
-    <img src="{{recipe.image}}" alt="imagem da receita {{recipe.title}}">
+    <img src="{{recipe.imagesFile[0]}}" alt="imagem da receita {{recipe.title}}">
     <div class="recipe-galery">
-        {% for image in recipe.images %}
-            <img src="{image}" alt="">
-            <h1>oi</h1>
+        {% for image in recipe.imagesFile %}
+            <img src="{{image}}" alt="" onclick="RecipeGalery.apply(event)">
         {% endfor %}
     </div>
     <h1>{{recipe.title}}</h1>

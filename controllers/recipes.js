@@ -43,7 +43,6 @@ module.exports = {
     async show(req, res){
         let results = await Recipes.find(req.params.id)
         let recipe = results.rows[0]
-        const imgs = []
 
         if(!recipe){
             return res.send('Recipe not found!')
@@ -52,15 +51,13 @@ module.exports = {
         results = await Recipes.findRecipeFile(recipe.id)
         let recipeFile = results.rows
 
-        recipeFile.forEach(async file => {
-            results = await File.find(file.file_id)
+        const imgs = await Promise.all(recipeFile.map(async file =>{
+            results =  await File.find(file.file_id)
             const img = results.rows[0].path.replace('public', '')
-            imgs.push(img)
-            recipe.images = imgs
-            console.log(recipe)
-        })
+            return img
+        }))
 
-        console.log(recipe)
+        recipe.imagesFile = imgs
 
         return res.render('admin/recipes/show.njk', {recipe})
     },

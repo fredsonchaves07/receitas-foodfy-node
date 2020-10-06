@@ -1,3 +1,5 @@
+const { query } = require("../config/db")
+
 // TODO -> refatorar todo os scripts
 const modal = document.querySelector('.modal-background')
 const receitas = document.querySelectorAll('.receitas')
@@ -115,4 +117,13 @@ const PhotosUpload = {
         photoDiv.remove()
 
     },
+
+}
+
+const RecipeGalery = {
+    divRecipeHeader: document.querySelector('.recipe-show-header'),
+    apply(event){
+        console.log(event.target)
+        console.log(RecipeGalery.divRecipeHeader)
+    }
 }
