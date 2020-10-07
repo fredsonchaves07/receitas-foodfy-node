@@ -1,5 +1,3 @@
-const { query } = require("../config/db")
-
 // TODO -> refatorar todo os scripts
 const modal = document.querySelector('.modal-background')
 const receitas = document.querySelectorAll('.receitas')
@@ -120,10 +118,20 @@ const PhotosUpload = {
 
 }
 
-const RecipeGalery = {
-    divRecipeHeader: document.querySelector('.recipe-show-header'),
-    apply(event){
-        console.log(event.target)
-        console.log(RecipeGalery.divRecipeHeader)
+const ImageGallery = {
+    imgHeader: document.querySelector('.recipe-show-header > img'),
+    galleryPreview: document.querySelectorAll('.recipe-gallery > img'),
+    setImage(event){
+        const {target} = event
+        imgPreview = target
+
+        ImageGallery.galleryPreview.forEach(image => {
+            image.classList.remove('active')
+        })
+
+        imgPreview.classList.add('active')
+
+        ImageGallery.imgHeader.src = imgPreview.src
     }
 }
+

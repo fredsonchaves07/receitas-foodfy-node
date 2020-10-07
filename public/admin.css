@@ -435,26 +435,30 @@ input[type="file"]{
 }
 
 /* Galery recipe image */
-.recipe-galery{
+.recipe-gallery{
     display: flex;
     justify-content: flex-end;
 }
 
-.recipe-galery img{
+.recipe-show-header .active{
+    opacity: 1;
+}
+
+.recipe-gallery img{
     width: 60px;
     height: 60px;
     margin-right: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
     opacity: 0.5;
-    cursor: pointer;
+    cursor: zoom-in;
 }
 
-.recipe-galery img:hover{
+.recipe-gallery img:hover{
     opacity: 1;
 }
 
-.recipe-galery img:last-child{
+.recipe-gallery img:last-child{
     margin-right: 0;
 }
 

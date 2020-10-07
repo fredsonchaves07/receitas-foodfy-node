@@ -6,9 +6,10 @@
 </div>
 <section class="recipe-show-header">
     <img src="{{recipe.imagesFile[0]}}" alt="imagem da receita {{recipe.title}}">
-    <div class="recipe-galery">
+    <div class="recipe-gallery">
         {% for image in recipe.imagesFile %}
-            <img src="{{image}}" alt="" onclick="RecipeGalery.apply(event)">
+            <img src="{{image}}" alt="" onclick="ImageGallery.setImage(event)" 
+            {% if image == recipe.imagesFile[0]%} class="active" {% endif %}>
         {% endfor %}
     </div>
     <h1>{{recipe.title}}</h1>
