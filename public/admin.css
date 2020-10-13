@@ -462,6 +462,11 @@ input[type="file"]{
     margin-right: 0;
 }
 
+footer{
+    background-color: black;
+    color: white;
+}
+
 
 
 
