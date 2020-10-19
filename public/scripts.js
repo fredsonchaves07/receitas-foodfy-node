@@ -25,93 +25,104 @@ for(let receita of receitas){
     })
 }
 
-// TODO -> Refatorar objeto de envio de fotos (Pensar em uma ideia mais simples)
 const PhotosUpload = {
-    limitPhoto: 5,
+    uploadLimit: 5,
     photosList: [],
     photoPreview: document.querySelector('#photos-preview'),
-    fileList: null,
     inputFile: '',
-    photosRemoveId: [],
 
     fileUpload(event){
-        const divPhotoCount = document.querySelector('#photos-preview').childElementCount
-
+        const {files: fileList} = event.target
         PhotosUpload.inputFile = event.target
 
-        const {files} = event.target
-        PhotosUpload.fileList = files
-        
-        if(this.hasLimit(files)){
-            event.preventDefault()
-            alert('Não é possível enviar mais de 5 fotos')
-        } else{
-            Array.from(files).forEach(file => {
-                PhotosUpload.photosList.push(file)
-    
-                const reader = new FileReader()
-
-                reader.onload = () => {
-                    const image = new Image()
-                    image.src = String(reader.result)
-
-                    const div = this.containerPhoto(image)
-
-                    this.photoPreview.appendChild(div)
-                }
-                
-                reader.readAsDataURL(file)
-            })
+        if(PhotosUpload.hasLimit(event)){
+            return
         }
+
+        Array.from(fileList).forEach(file => {
+            PhotosUpload.photosList.push(file)
+
+            const reader = new FileReader()
+
+            reader.onload = () => {
+                const image = new Image()
+                image.src = String(reader.result)
+
+                const div = PhotosUpload.getDivContainter(image)
+
+                PhotosUpload.photoPreview.appendChild(div)
+            }
+
+            reader.readAsDataURL(file)
+        })
+
+        PhotosUpload.inputFile.files = PhotosUpload.getAllFiles()
     },
 
-    containerPhoto(image){
-        const div = document.createElement('div')
-        const i = document.createElement('i')
+    getAllFiles(){
+        const dataTransfer = new DataTransfer || new ClipboardEvent('')
+
+        PhotosUpload.photosList.forEach(file => dataTransfer.items.add(file))
+
+        return dataTransfer.files
+    },
+
+    hasLimit(event){
+        const {uploadLimit, inputFile, photoPreview} = PhotosUpload
+        const {files: fileList} = inputFile
         
-        i.classList.add('material-icons')
-        i.addEventListener('click', this.removePhoto)
-        i.innerText = 'close'
+        if(fileList.length > uploadLimit){
+            alert(`Envie no máximo ${uploadLimit} fotos`)
+            event.preventDefault()
+            return true
+        }
+
+        const photoDiv = []
+
+        photoPreview.childNodes.forEach(item => {
+            if(item.classList && item.classList.value == 'photo'){
+                photoDiv.push(item)
+            }
+        })
+
+        const totalPhotos = fileList.length + photoDiv.length
+
+        if(totalPhotos > uploadLimit){
+            alert('Atingiu o limite de fotos')
+            event.preventDefault()
+            return true
+        }
+
+        return false
+    },
+
+    getDivContainter(image){
+        const div = document.createElement('div')
 
         div.classList.add('photo')
+        div.onclick = PhotosUpload.removePhoto
+        div.appendChild(PhotosUpload.getRemoveButton())
         div.appendChild(image)
-        div.appendChild(i)
 
         return div
     },
 
-    hasLimit(files){
-        const divPhotoCount = document.querySelector('#photos-preview').childElementCount
-        
-        
-        if((divPhotoCount + files.length) > this.limitPhoto){
-            return true
-        }
+    getRemoveButton(){
+        const button = document.createElement('i')
+        button.classList.add('material-icons')
+        button.innerHTML = 'close'
 
-        return false;
+        return button
     },
 
     removePhoto(event){
         const photoDiv = event.target.parentNode
         const photoArray = Array.from(PhotosUpload.photoPreview.children)
         const index = photoArray.indexOf(photoDiv)
-        
-        if(photoDiv.id){
-            const removedFiles = document.querySelector('input[name="removed_files"]')
 
-            if(removedFiles){
-                PhotosUpload.photosRemoveId.push(photoDiv.id)
-            }
-
-            removedFiles.value = PhotosUpload.photosRemoveId
-            console.log(removedFiles)
-        }
-
-        if(PhotosUpload.fileList){
-            Array.from(PhotosUpload.fileList).splice(index, 1);
-        }
-        
         PhotosUpload.photosList.splice(index, 1)
+        PhotosUpload.inputFile.files = PhotosUpload.getAllFiles()
+
         photoDiv.remove()
 
     },
