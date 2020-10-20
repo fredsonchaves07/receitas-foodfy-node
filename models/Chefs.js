@@ -2,84 +2,110 @@ const db = require('../config/db')
 
 module.exports = {
     all(){
-        const query = `
-            SELECT files.path as avatar, chefs.* 
-            FROM chefs
-            INNER JOIN files
-            ON files.id = chefs.file_id
-        `
+        try {
+            const query = `
+                SELECT files.path as avatar, chefs.* 
+                FROM chefs
+                INNER JOIN files
+                ON files.id = chefs.file_id
+            `
 
-        return db.query(query)
+            return db.query(query)
+        } catch (error) {
+            console.log(error)
+        }
+
     },
 
     recipeList(id){
-        const query = `
-            SELECT chefs.id,
-                   chefs.name as author,
-                   recipes.image,
-                   recipes.title,
-                   recipes.id as recipeid
-            FROM chefs
-            INNER JOIN recipes
-            ON chefs.id = recipes.chef_id
-            WHERE chefs.id = $1
-        `
+        try {
+            const query = `
+                SELECT chefs.id,
+                    chefs.name as author,
+                    recipes.image,
+                    recipes.title,
+                    recipes.id as recipeid
+                FROM chefs
+                INNER JOIN recipes
+                ON chefs.id = recipes.chef_id
+                WHERE chefs.id = $1
+            `
 
-        return db.query(query, [id])
+            return db.query(query, [id])
+        } catch (error) {
+            console.log(error)
+        }
+
     },
 
     create(data, fileId){
-        const query = `
-            INSERT INTO chefs (
-                file_id,
-                name,
-                created_at
-            ) VALUES ($1, $2, $3)
-        `
+        try {
+            const query = `
+                INSERT INTO chefs (
+                    file_id,
+                    name,
+                    created_at
+                ) VALUES ($1, $2, $3)
+            `
 
-        const values = [
-            fileId,
-            data.name,
-            new Date().toISOString()
-        ]
+            const values = [
+                fileId,
+                data.name,
+                new Date().toISOString()
+            ]
 
-        return db.query(query, values)
+            return db.query(query, values)
+        } catch (error) {
+            console.log(error)
+        }
     },
 
     find(id){
-        const query = `
-            SELECT files.path as avatar, chefs.* 
-            FROM chefs
-            INNER JOIN files
-            ON files.id = chefs.file_id
-            WHERE chefs.id = $1
-        `
+        try {
+            const query = `
+                SELECT files.path as avatar, chefs.* 
+                FROM chefs
+                INNER JOIN files
+                ON files.id = chefs.file_id
+                WHERE chefs.id = $1
+            `
 
-        return db.query(query, [id])
+            return db.query(query, [id])
+        } catch (error) {
+            console.log(error)
+        }
     },
 
     update(data){
-        const query = `
-            UPDATE chefs
-            SET file_id = $1,
-                name = $2
-            WHERE id = $3
-        `
+        try {
+            const query = `
+                UPDATE chefs
+                SET file_id = $1,
+                    name = $2
+                WHERE id = $3
+            `
 
-        const values = [
-            data.file_id,
-            data.name,
-            data.id
-        ]
+            const values = [
+                data.file_id,
+                data.name,
+                data.id
+            ]
 
-        return db.query(query, values)
+            return db.query(query, values)
+        } catch (error) {
+            console.log(error)
+        }
     },
 
     delete(id){
-        const query = `
-            DELETE FROM chefs
-            WHERE id = $1
-        `
-        return db.query(query, [id])
+        try {
+            const query = `
+                DELETE FROM chefs
+                WHERE id = $1
+            `
+            return db.query(query, [id])
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
