@@ -11,7 +11,7 @@
             <button type="submit" class="button" form="form-edit">Salvar</button>
         </div>
     </div>
-    <!--//TODO - Implementar lógica de mudança dinâmica ao trocar a imagem de perfil -->
+
     <form action="/admin/chefs?_method=PUT" method="POST" id="form-edit" enctype="multipart/form-data">
         <div class="content-form">
             <div class="content-form-avatar">
@@ -23,6 +23,7 @@
             </div>
         </div>
     </form>
+
     <form action="/admin/chefs?_method=DELETE" method="POST" id="form-delete">
         <input type="hidden" name="id" value="{{chef.id}}">
     </form>

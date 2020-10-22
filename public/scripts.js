@@ -146,3 +146,22 @@ const ImageGallery = {
     }
 }
 
+const PhotoChef = {
+    img: document.querySelector('.content-form-avatar img'),
+
+    change(event){
+        const {files} = event.target
+
+        Array.from(files).forEach(file => {
+            const reader = new FileReader()
+
+            reader.onload = () => {
+                const image = new Image()
+                image.src = String(reader.result)
+                PhotoChef.img.src = image.src
+            }
+    
+            reader.readAsDataURL(file)
+        })
+    }
+}
