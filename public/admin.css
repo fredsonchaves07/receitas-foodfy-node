@@ -144,7 +144,8 @@ span{
 .recipe-show-header img{
     width: 100%;
     border-radius: 8px;
-    height: 320px
+    height: 320px;
+    object-fit: cover;
 }
 
 .recipe-show-header h1{
@@ -269,6 +270,7 @@ span{
     border-radius: 50%;
     width: 60px;
     height: 60px;
+    object-fit: cover;
 }
 
 
@@ -282,6 +284,8 @@ span{
     border-radius: 50%;
     width: 200px;
     height: 200px;
+    object-fit: cover;
+    object-position: 0px ;
 }
 
 .chef-show-header h1{
@@ -331,7 +335,8 @@ form .content-form-avatar img{
     border-radius: 50%;
     width: 200px;
     height: 200px;
-    box-sizing: border-box;
+    object-fit: cover;
+    object-position: 0px ;
 }
 
 form .content-form div:nth-child(2){
@@ -451,6 +456,7 @@ input[type="file"]{
     border: 1px solid #ddd;
     border-radius: 8px;
     opacity: 0.5;
+    transition: opacity ease-in-out 300ms;
     cursor: zoom-in;
 }
 
