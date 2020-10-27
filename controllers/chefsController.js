@@ -8,9 +8,13 @@ module.exports = {
         const chefs = results.rows
 
         //TODO - Melhorar lógica de replace do caminho da imagem
-        for(let i = 0; i < chefs.length; i ++){
-            chefs[i].avatar = chefs[i].avatar.replace('public', '')
-        }
+        // for(let i = 0; i < chefs.length; i ++){
+        //     chefs[i].avatar = chefs[i].avatar.replace('public', '')
+        // }
+
+        chefs.forEach(chef => {
+            chef.avatar = chef.avatar.replace('public', '')
+        })
 
         return res.render('admin/chefs/index', {chefs})
         
