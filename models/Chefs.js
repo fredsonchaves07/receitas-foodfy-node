@@ -22,7 +22,6 @@ module.exports = {
             const query = `
                 SELECT chefs.id,
                     chefs.name as author,
-                    recipes.image,
                     recipes.title,
                     recipes.id as recipeid
                 FROM chefs

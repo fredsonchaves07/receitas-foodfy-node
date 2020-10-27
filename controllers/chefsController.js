@@ -7,11 +7,6 @@ module.exports = {
         const results = await Chefs.all()
         const chefs = results.rows
 
-        //TODO - Melhorar lógica de replace do caminho da imagem
-        // for(let i = 0; i < chefs.length; i ++){
-        //     chefs[i].avatar = chefs[i].avatar.replace('public', '')
-        // }
-
         chefs.forEach(chef => {
             chef.avatar = chef.avatar.replace('public', '')
         })
@@ -38,15 +33,26 @@ module.exports = {
         
         let results = await Chefs.find(req.params.id)
         const chef = results.rows[0]
-
-        result = await File.find(chef.file_id)
-        const avatarChef = result.rows[0].path.replace('public', '')
-
+        
         if(!chef){
             return res.send('Chef not found!')
         }
 
-        return res.render('admin/chefs/show', {chef, avatarChef})
+        results = await File.find(chef.file_id)
+        const avatarChef = results.rows[0].path.replace('public', '')
+
+        results = await Chefs.recipeList(req.params.id)
+        const recipeChefList = results.rows
+
+        results = await File.find(recipeChefList.recipeid)
+        const recipeImage = results.rows.path.replace('public', '')
+
+        recipeChefList = {
+            ...recipeChefList,
+            recipeImage: recipeImage
+        }
+
+        return res.render('admin/chefs/show', {chef, avatarChef, recipeChefList})
 },
 
     async edit(req, res){
