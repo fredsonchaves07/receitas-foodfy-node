@@ -35,7 +35,7 @@ module.exports = {
         const chef = results.rows[0]
         
         if(!chef){
-            return res.send('Chef not found!')
+        return res.send('Chef not found!')
         }
 
         results = await File.find(chef.file_id)
@@ -44,15 +44,9 @@ module.exports = {
         results = await Chefs.recipeList(req.params.id)
         const recipeChefList = results.rows
 
-        results = await File.find(recipeChefList.recipeid)
-        const recipeImage = results.rows.path.replace('public', '')
+        const contRecipes = recipeChefList.length
 
-        recipeChefList = {
-            ...recipeChefList,
-            recipeImage: recipeImage
-        }
-
-        return res.render('admin/chefs/show', {chef, avatarChef, recipeChefList})
+        return res.render('admin/chefs/show', {chef, avatarChef, recipeChefList, contRecipes})
 },
 
     async edit(req, res){
