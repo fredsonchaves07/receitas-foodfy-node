@@ -7,14 +7,14 @@
 <section class="chef-show-header">
     <img src="{{avatarChef}}" alt="avatar do chef">
     <h1>{{chef.name}}</h1>
-    <div>{{contRecipes}} Receita(s)</div>
+    <div>{{recipeChefList.length}} Receita(s)</div>
 </section>
 <section class="chef-show-detail">
     <div class="item">
         <h2>Receitas</h2>
-        {% if recipes != "" %}
+        {% if recipeChefList != "" %}
             <div class="cards cards-recipes">
-        {% for recipe in recipes %}
+        {% for recipe in recipeChefList %}
         <div class="card">
             <section class="card-img-recipe">
                 <img src="{{recipe.image}}" alt="imagem da receita {{recipe.title}}">
