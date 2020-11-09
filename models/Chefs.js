@@ -22,11 +22,22 @@ module.exports = {
             const query = `
                 SELECT chefs.id,
                     chefs.name as author,
-                    recipes.title,
-                    recipes.id as recipeid
+                    rp.title,
+                    rp.id as recipeid,
+                    
+                    (SELECT files.path FROM files
+                    
+                    INNER JOIN recipe_files
+                    ON recipe_files.file_id = file_id 
+                    
+                    WHERE recipe_files.recipe_id = rp.id
+                    LIMIT 1
+                    ) AS image
                 FROM chefs
-                INNER JOIN recipes
-                ON chefs.id = recipes.chef_id
+            
+                INNER JOIN recipes rp
+                ON chefs.id = rp.chef_id
+        
                 WHERE chefs.id = ${id}
             `
 

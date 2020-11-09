@@ -2,6 +2,7 @@ const Chefs = require('../models/Chefs')
 const File = require('../models/File')
 const fs = require('fs')
 const Recipes = require('../models/Recipes')
+const { recipeList } = require('../models/Chefs')
 
 module.exports = {
     async index(req, res){
@@ -45,11 +46,9 @@ module.exports = {
         results = await Chefs.recipeList(req.params.id)
         const recipeChefList = results.rows
 
-        recipeChefList.forEach(async recipe => {
-            results = await Recipes.findRecipeFile(recipe.recipeid)
-            console.log(results.rows)
+        recipeChefList.forEach(recipe => {
+            recipe.image = recipe.image.replace('public', '')
         })
-
 
         return res.render('admin/chefs/show', {chef, avatarChef, recipeChefList})
 },
